@@ -5,6 +5,25 @@ document.querySelectorAll('[data-realm-widget]').forEach(widget=>{widget.querySe
 const dialog=document.getElementById('episode-dialog');let opener=null;
 const player=dialog.querySelector('[data-video-player]');
 function stopEpisode(){player.replaceChildren();opener?.focus();}
-document.querySelectorAll('[data-episode]').forEach(b=>b.addEventListener('click',()=>{opener=b;const frame=document.createElement('iframe');frame.src='https://www.youtube-nocookie.com/embed/QDpRmK5qikU?autoplay=1&rel=0';frame.title='Every Utopia Ends in Fire — Sophia’s Embrace S01E01';frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';player.replaceChildren(frame);dialog.showModal();dialog.querySelector('.dialog-close').focus();}));
+document.querySelectorAll('[data-episode]').forEach(button => button.addEventListener('click', () => {
+  opener = button;
+  const commentary = button.dataset.episode === 'commentary';
+  const videoId = commentary ? 'OGZQuR-9Y_s' : 'QDpRmK5qikU';
+  const title = commentary ? 'Every Utopia Ends in Fire — Creator Commentary' : 'Every Utopia Ends in Fire';
+  dialog.querySelector('[data-video-label]').textContent = commentary ? 'S01E01 · CREATOR COMMENTARY · 3:53' : 'S01E01 · 3:42';
+  dialog.querySelector('#episode-title').textContent = title;
+  dialog.querySelector('[data-video-description]').textContent = commentary
+    ? 'Dan Hegelund watches the first episode and talks through the story, the three realms, and the choices that shaped the film.'
+    : 'Many forms. One Sophia.';
+  const frame = document.createElement('iframe');
+  frame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+  frame.title = `${title} — Sophia’s Embrace S01E01`;
+  frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+  frame.allowFullscreen = true;
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  player.replaceChildren(frame);
+  dialog.showModal();
+  dialog.querySelector('.dialog-close').focus();
+}));
 function closeDialog(){dialog.close();}
 dialog.querySelector('.dialog-close').addEventListener('click',closeDialog);dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog();}});dialog.addEventListener('close',stopEpisode);
