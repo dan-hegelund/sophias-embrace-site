@@ -1,0 +1,116 @@
+.world-guide {
+  --guide-muted: #bdc6c0;
+  --realm-accent: #e4c38e;
+  background: #0d1112;
+}
+.guide-nav, .guide-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px 30px;
+  padding: 24px 7%;
+  border-bottom: 1px solid #ffffff21;
+}
+.guide-nav > a, .guide-footer > a:first-child { font: 17px Wide, sans-serif; }
+.guide-nav nav, .guide-footer { font-size: 15px; }
+.guide-nav nav { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.guide-nav a:hover, .guide-footer a:hover { color: var(--realm-accent); }
+.guide-intro, .guide-people { padding: clamp(40px, 7vw, 108px) 7%; }
+.guide-intro {
+  background: radial-gradient(ellipse at 70% 20%, #20282b 0%, transparent 69%);
+}
+.guide-kicker {
+  margin: 0 0 12px;
+  color: var(--realm-accent);
+  font: 13px/1.5 Mono, monospace;
+  letter-spacing: .105em;
+  text-transform: uppercase;
+}
+.guide-intro h1, .guide-people h2, .guide-landscape h2 {
+  margin: 0;
+  color: #f7f3e8;
+  font: 900 clamp(48px, 7vw, 114px)/.98 DIN, sans-serif;
+  text-wrap: balance;
+}
+.guide-lede {
+  max-width: 54ch;
+  margin: 20px 0 32px;
+  color: var(--guide-muted);
+  font-size: clamp(17px, 2.3vw, 22px);
+  line-height: 1.55;
+}
+.guide-portals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.guide-portals a, .guide-landscape { position: relative; overflow: hidden; }
+.guide-portals a { min-height: 225px; aspect-ratio: 1.32; border: 1px solid #ffffff3d; }
+.guide-portals img, .guide-landscape img { position: absolute; inset: 0; }
+.guide-portals a > span, .guide-landscape > div {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 5px;
+  padding: 38px 20px 18px;
+  background: linear-gradient(transparent, #080a0ced 86%);
+}
+.guide-portals small { color: #f0d4a5; font: 13px Mono, monospace; }
+.guide-portals strong { font: 900 clamp(24px, 3.5vw, 49px)/1.05 DIN, sans-serif; }
+.guide-portals a:hover { border-color: var(--realm-accent); }
+.guide-realm {
+  --realm-accent: #e4c38e;
+  border-top: 1px solid #ffffff24;
+  scroll-margin-top: 12px;
+}
+.guide-britain { --realm-accent: #b8d8aa; }
+.guide-collective { --realm-accent: #e9a0ac; }
+.guide-landscape { height: clamp(305px, 56vw, 690px); background: #101719; }
+.guide-landscape > div { padding: clamp(44px, 12vw, 170px) 7% clamp(24px, 4vw, 56px); }
+.guide-entry {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 20px clamp(28px, 6vw, 90px);
+  padding: clamp(28px, 5vw, 74px) 7%;
+  color: var(--guide-muted);
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.65;
+}
+.guide-entry p, .guide-person p:not(.guide-kicker) { margin: 0; }
+.guide-entry p { max-width: 63ch; }
+.guide-entry nav { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 13px; }
+.guide-entry a, .guide-person a {
+  color: var(--realm-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.guide-people { background: #131a1b; border-top: 1px solid #ffffff24; }
+.guide-cast { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 32px; }
+.guide-person {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1fr);
+  align-items: start;
+  background: #0d1112;
+  border: 1px solid #ffffff28;
+  scroll-margin-top: 14px;
+}
+.guide-person img { height: auto; aspect-ratio: 4 / 5; object-position: center 30%; }
+.guide-person > div { display: grid; gap: 11px; padding: clamp(15px, 2.3vw, 32px); }
+.guide-person .guide-kicker { margin: 0; }
+.guide-person h3 { margin: 0; font: 900 clamp(25px, 3vw, 44px)/1.04 DIN, sans-serif; }
+.guide-person p:not(.guide-kicker) { color: var(--guide-muted); font-size: 17px; line-height: 1.55; }
+.guide-person a { margin-top: 3px; }
+.guide-footer { border-top: 1px solid #ffffff24; border-bottom: 0; }
+.guide-footer span { color: var(--guide-muted); }
+.world-guide a:focus-visible { outline: 2px solid var(--realm-accent); outline-offset: -3px; }
+
+@media (max-width: 990px) {
+  .guide-person { grid-template-columns: 1fr; }
+  .guide-person img { aspect-ratio: 4 / 3; }
+}
+@media (max-width: 670px) {
+  .guide-portals, .guide-entry, .guide-cast { grid-template-columns: 1fr; }
+  .guide-portals a { min-height: 170px; aspect-ratio: 2.05; }
+  .guide-intro, .guide-people, .guide-entry { padding-inline: 6%; }
+}

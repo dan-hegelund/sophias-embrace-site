@@ -4,6 +4,8 @@ document.querySelectorAll('[data-scroll]').forEach(b=>b.addEventListener('click'
 document.querySelectorAll('[data-realm-widget]').forEach(widget => {
   const buttons = widget.querySelectorAll('[data-realm-pick]');
   const image = widget.querySelector('[data-realm-image]');
+  const guideLink = widget.querySelector('[data-realm-guide]');
+  const guideNames = { imperium: 'the Imperium', britain: 'Great Britain', collective: 'the Collective' };
 
   function showRealm(key) {
     const realm = realms[key];
@@ -13,6 +15,8 @@ document.querySelectorAll('[data-realm-widget]').forEach(widget => {
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.realmPick === key)));
     image.src = realm.image;
     image.alt = realm.name;
+    guideLink.href = `/world/#${key}`;
+    guideLink.firstChild.textContent = `Explore ${guideNames[key]} `;
     for (const field of ['name', 'description', 'index', 'kicker', 'place', 'promise', 'tension']) {
       widget.querySelectorAll(`[data-realm-${field}]`).forEach(element => {
         element.textContent = realm[field];

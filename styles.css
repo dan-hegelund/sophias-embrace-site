@@ -144,3 +144,15 @@ button,a{touch-action:manipulation}h2,h3{overflow-wrap:break-word}
   .premiere .a-world .c-realm-buttons button { min-height: 56px; padding-block: 13px; }
   .premiere .a-world .c-realm-picture { aspect-ratio: 1.35; }
 }
+
+.world-guide-link {
+  display: inline-block;
+  justify-self: start;
+  color: var(--realm-accent, #e4c38e);
+  font-size: 17px;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.c-realm-description .world-guide-link { grid-column: 1 / -1; margin-top: 8px; }
+.cast-card .world-guide-link { margin-top: 16px; }
