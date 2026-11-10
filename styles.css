@@ -90,3 +90,57 @@ button,a{touch-action:manipulation}h2,h3{overflow-wrap:break-word}
 .episode-actions{display:flex;flex-wrap:wrap;column-gap:24px}
 .episode-commentary-cover{flex-basis:100%;width:100%;max-width:360px;text-align:left}
 .episode-commentary-cover img{display:block;width:100%;height:auto;margin-bottom:12px}
+
+/* Public world entrance */
+.premiere .a-world .realm-stage {
+  --realm-accent: #e4c38e;
+  grid-template-columns: minmax(190px, .82fr) minmax(0, 2.8fr);
+  gap: clamp(20px, 3vw, 48px);
+}
+.premiere .a-world .realm-stage[data-realm="britain"] { --realm-accent: #b8d8aa; }
+.premiere .a-world .realm-stage[data-realm="collective"] { --realm-accent: #e9a0ac; }
+
+.premiere .a-world .c-realm-buttons button {
+  padding-inline: 12px;
+  font-size: clamp(18px, 2.1vw, 25px);
+}
+.premiere .a-world .c-realm-buttons button[aria-pressed="true"] {
+  color: var(--realm-accent);
+  background: #ffffff08;
+  box-shadow: inset 2px 0 var(--realm-accent);
+}
+.premiere .a-world .c-realm-buttons small { color: inherit; }
+
+.premiere .a-world .c-realm-picture {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 1.68;
+  background: #101819;
+}
+.realm-caption {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 7px;
+  padding: clamp(24px, 4vw, 52px) clamp(18px, 3vw, 38px) clamp(15px, 2vw, 26px);
+  background: linear-gradient(transparent, #080b0ee8);
+  color: #f7f3e8;
+}
+.realm-caption span {
+  color: var(--realm-accent);
+  font: 13px Mono, monospace;
+  letter-spacing: .11em;
+}
+.realm-caption strong {
+  font: clamp(26px, 4.2vw, 66px)/1.04 DIN, sans-serif;
+  letter-spacing: .015em;
+}
+.premiere .a-world .c-realm-description .c-eyebrow { color: var(--realm-accent); }
+
+@media (max-width: 680px) {
+  .premiere .a-world .realm-stage { gap: 20px; }
+  .premiere .a-world .c-realm-buttons button { min-height: 56px; padding-block: 13px; }
+  .premiere .a-world .c-realm-picture { aspect-ratio: 1.35; }
+}
