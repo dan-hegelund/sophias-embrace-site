@@ -114,3 +114,33 @@
   .guide-portals a { min-height: 170px; aspect-ratio: 2.05; }
   .guide-intro, .guide-people, .guide-entry { padding-inline: 6%; }
 }
+
+.guide-place-index {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.guide-place-index a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px 12px;
+  align-items: baseline;
+  padding: 18px 20px;
+  border: 1px solid #ffffff2f;
+  background: #ffffff06;
+  font: 900 clamp(25px, 3.3vw, 42px)/1.1 DIN, sans-serif;
+}
+.guide-place-index small {
+  grid-column: 1 / -1;
+  color: var(--realm-accent);
+  font: 13px Mono, monospace;
+}
+.guide-place-index a:hover { border-color: var(--realm-accent); }
+.places-guide .guide-entry h3 {
+  margin: 0 0 6px;
+  color: #f7f3e8;
+  font: 900 25px/1.2 DIN, sans-serif;
+}
+@media (max-width: 670px) {
+  .guide-place-index { grid-template-columns: 1fr; }
+}
