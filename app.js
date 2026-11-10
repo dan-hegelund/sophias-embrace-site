@@ -8,7 +8,7 @@ function stopEpisode(){player.replaceChildren();opener?.focus();}
 document.querySelectorAll('[data-episode]').forEach(button => button.addEventListener('click', () => {
   opener = button;
   const commentary = button.dataset.episode === 'commentary';
-  const videoId = commentary ? 'OGZQuR-9Y_s' : 'QDpRmK5qikU';
+  const videoId = commentary ? 'OGZQuR-9Y_s' : '040Yenmm-zA';
   const title = commentary ? 'Every Utopia Ends in Fire — Creator Commentary' : 'Every Utopia Ends in Fire';
   dialog.querySelector('[data-video-label]').textContent = commentary ? 'S01E01 · CREATOR COMMENTARY · 3:53' : 'S01E01 · 3:42';
   dialog.querySelector('#episode-title').textContent = title;
