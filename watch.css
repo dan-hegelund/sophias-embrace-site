@@ -1,0 +1,54 @@
+.watch-index {
+  background: #141819;
+  color: #f4eee3;
+  scroll-margin-top: 5rem;
+}
+.watch-index h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.05;
+}
+.watch-index > p {
+  max-width: 65ch;
+  margin: 0 0 2rem;
+  color: #d3ccc3;
+}
+.watch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+}
+.watch-grid article {
+  padding: 1.25rem;
+  border: 1px solid #454b49;
+  background: #1c2323;
+}
+.watch-grid h3,
+.watch-tutorials {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 1.35rem;
+}
+.watch-index ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.watch-index a {
+  display: inline-block;
+  padding-block: 0.45rem;
+  color: #e4eddc;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.watch-index a:hover,
+.watch-index a:focus-visible {
+  color: #fff;
+}
+.watch-index .watch-tutorials {
+  margin-top: 2rem;
+}
+.watch-tutorial-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}

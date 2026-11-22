@@ -57,9 +57,9 @@ function stopEpisode(){player.replaceChildren();opener?.focus();}
 document.querySelectorAll('[data-episode]').forEach(button => button.addEventListener('click', () => {
   opener = button;
   const commentary = button.dataset.episode === 'commentary';
-  const videoId = commentary ? 'oeduFd3913c' : '040Yenmm-zA';
+  const videoId = commentary ? 't4WcRhMZoCs' : '3gQyLnBZb9s';
   const title = commentary ? 'Every Utopia Ends in Fire — Creator Commentary' : 'Every Utopia Ends in Fire';
-  dialog.querySelector('[data-video-label]').textContent = commentary ? 'S01E01 · CREATOR COMMENTARY · 3:53' : 'S01E01 · 3:42';
+  dialog.querySelector('[data-video-label]').textContent = commentary ? 'S01E01 · CREATOR COMMENTARY · 3:40' : 'S01E01 · 3:40';
   dialog.querySelector('#episode-title').textContent = title;
   dialog.querySelector('[data-video-description]').textContent = commentary
     ? 'Dan Hegelund watches the first episode and talks through the story, the three realms, and the choices that shaped the film.'
