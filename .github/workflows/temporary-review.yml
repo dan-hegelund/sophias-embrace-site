@@ -15,11 +15,11 @@ jobs:
         run: |
           set -euo pipefail
           curl --fail --show-error --silent --location --max-time 90 \
-            'https://drive.google.com/uc?export=download&confirm=t&id=1QZW9oan3K3JnEI9wTcVUK0e64dB_sQdm' \
-            --output episode-five-train-placement-02.mp4
-          echo '1702f2c2f9d94e7bf142fbc8d0ab2eb26cda88155c87fcddd752b142373fd875  episode-five-train-placement-02.mp4' | sha256sum --check
+            'https://drive.google.com/uc?export=download&confirm=t&id=1o2EhPTBZ3u0wMGukovWcp4s-O_RR56-i' \
+            --output episode-five-train-placement-03.mp4
+          echo '9a112d9d34e93842a3de0445e3a6ec6b3f0725648b5804fc01c033da341e4c25  episode-five-train-placement-03.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-train-placement-02.mp4 --clobber
+          gh release upload temporary-review episode-five-train-placement-03.mp4 --clobber
