@@ -14,10 +14,10 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/384703b820aee98db9cde50431600e3540431916 > episode-five-front-row-a9b755b3.mp4
-          echo 'a9b755b3d366dc05a1d69508d49977778402c64ebeeb1081f1b5671456f6175a  episode-five-front-row-a9b755b3.mp4' | sha256sum --check
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/5abfad6c6c535642c0843309612d951517fc0b7a > episode-five-sophia-walk-26a423b0.mp4
+          echo '26a423b0a77251c5383ef41621a252a29119a2895cf7c516c0ad335ce9b5ba98  episode-five-sophia-walk-26a423b0.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-front-row-a9b755b3.mp4 --clobber
+          gh release upload temporary-review episode-five-sophia-walk-26a423b0.mp4 --clobber
