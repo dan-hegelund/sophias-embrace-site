@@ -14,13 +14,13 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/cb7d1b3cebbf4a1b083b04351fda473577d40330 >> episode-five-reprise-e3ef04de.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/5b11c42079f2e837720c31320afe8f63797bb715 >> episode-five-reprise-e3ef04de.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/63745535cdb1bc3da45e0e9c6554074ed705d24f >> episode-five-reprise-e3ef04de.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/dd37f3d088bdfb685d6d8a54413b7feeac0ac44e >> episode-five-reprise-e3ef04de.mp4
-          echo 'e3ef04de11b1fd37970e4dfade39dee36d4a3fd0e9f241d44d4844bd60f57fb8  episode-five-reprise-e3ef04de.mp4' | sha256sum --check
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/3c382002fe3394bd645453c131ac51d3fb8aa81d >> episode-five-enemy-0897933e.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/a8e23b8e8b5d37caa1cf12688e00bad00528da34 >> episode-five-enemy-0897933e.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/ae3ae8d805ec1907d10ddc3be3c33317ca36ed01 >> episode-five-enemy-0897933e.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/5982a569175bb524b7d8d9e8b2eb078885bb5e99 >> episode-five-enemy-0897933e.mp4
+          echo '0897933e6cc42a9651a9bdd073cb22aa1bed7fe1b2a28410afc98255c1180973  episode-five-enemy-0897933e.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-reprise-e3ef04de.mp4 --clobber
+          gh release upload temporary-review episode-five-enemy-0897933e.mp4 --clobber
