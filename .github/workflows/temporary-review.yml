@@ -14,14 +14,18 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/7c094c277ad639b4f365c80dd8f5399886d9fbd1 >> episode-five-walk-context-327bc4e9.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/ccdff3267b4ca0b1f0242357d496489ee48447a4 >> episode-five-walk-context-327bc4e9.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/8aca5cfc8216e2323bc384bf8d2e45905492f4df >> episode-five-walk-context-327bc4e9.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/405ac02d5aadf15970496a0876093ee1fbc82e95 >> episode-five-walk-context-327bc4e9.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/5b9d146f2551a7d93cfb0dd1c921387382114ba8 >> episode-five-walk-context-327bc4e9.mp4
-          echo '327bc4e9bf29a043a4ed52f990b86847752ed393c8868fb1f6b83449d944f4f5  episode-five-walk-context-327bc4e9.mp4' | sha256sum --check
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/2316cf98afccaacafec2260068b9fef0a73bfcea >> episode-five-ending-board-6d92e364.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/234ebbdd5aa6950aa62d294c281206723de1adb2 >> episode-five-ending-board-6d92e364.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/3f474a08f7234b1b286e8e498c905a17844ca125 >> episode-five-ending-board-6d92e364.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/bd7c1f533c19a625effe9c600ba6f2ef771b3835 >> episode-five-ending-board-6d92e364.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/801ff7b439211d2430bac1a831baa15071ae349d >> episode-five-ending-board-6d92e364.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/e70004892f5b6cfe1d16a02c8f5518f296cf3120 >> episode-five-ending-board-6d92e364.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/684f5d596b45eb1ec8101a5454afc32a9540e222 >> episode-five-ending-board-6d92e364.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/ab98676b0a93a322f94989019a80216a9b26bbb0 >> episode-five-ending-board-6d92e364.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/bd9ce99d1cf8d15ab1904318f32fbefe45fb97a1 >> episode-five-ending-board-6d92e364.mp4
+          echo '6d92e3649fda909eb65b8017abcdf247e3e1265cfeab81919bd450e03e40ed5a  episode-five-ending-board-6d92e364.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-walk-context-327bc4e9.mp4 --clobber
+          gh release upload temporary-review episode-five-ending-board-6d92e364.mp4 --clobber
