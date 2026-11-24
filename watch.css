@@ -52,3 +52,5 @@
   flex-wrap: wrap;
   gap: 0 1.5rem;
 }
+
+.fine-art-section{background:#101616}.fine-art-section h2{font:clamp(2.5rem,5vw,4rem)/1.05 Instrument,Georgia,serif;margin:.75rem 0 2rem}.fine-art-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;margin-bottom:2rem}.fine-art-card{display:block;color:#eee6d9;text-decoration:none}.fine-art-card img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}.fine-art-card span{display:block;font-size:1.25rem;margin-top:1rem}.fine-art-card:focus-visible{outline:2px solid #e4c38e;outline-offset:5px}@media(max-width:850px){.fine-art-grid{grid-template-columns:1fr}.fine-art-card span{font-size:1.125rem}}@media(max-width:680px){.nav nav{flex-wrap:wrap;gap:12px 18px}.nav nav a[href="/art/"],.nav nav a[href="#watch"]{display:inline}.nav{height:auto;min-height:190px;padding-bottom:22px}}
