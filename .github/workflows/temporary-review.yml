@@ -14,10 +14,10 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          curl --fail --location --retry 4 --output episode-five-r2-0e5082f0.mp4 'https://trader-appraisal-whole-nearest.trycloudflare.com/v8dG3B1u5L-qoPV1qLJFXqrUpal1Iq9kTI0yIw'
-          echo '0e5082f08dfbed89714d55f7056411aa9b3a33e68e5f6c484542373ad6aef3b6  episode-five-r2-0e5082f0.mp4' | sha256sum --check
+          curl --fail --location --retry 4 --output episode-five-r3-66c38ca7.mp4 'https://dust-terminal-witch-harmony.trycloudflare.com/NKopkK_ucPfAt91e_FQKVglfDZ3FWSHHQJJnJA'
+          echo '66c38ca7d2777ad740d12f3ced368fe226379a776776f4110a0c89e67020ca34  episode-five-r3-66c38ca7.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-r2-0e5082f0.mp4 --clobber
+          gh release upload temporary-review episode-five-r3-66c38ca7.mp4 --clobber
