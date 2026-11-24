@@ -14,7 +14,9 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          curl --fail --location --retry 4 --output episode-five-r9-1c8b86b9.mp4 'https://peas-post-whatever-inns.trycloudflare.com/8wKkFaqB1_6CJmN4xl7oYAWGxBu29HBTbjQAfg'
+          mkdir fragments
+          seq -w 0 33 | xargs -P 3 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 120 --output fragments/@ 'https://plays-faster-closing-knows.trycloudflare.com/LBhZWrp9xNIFuJiBm4H7cLOPG4VVLVvhTPWXPg/@'
+          cat fragments/?? > episode-five-r9-1c8b86b9.mp4
           echo '1c8b86b9eb0920108fe6cb106c38fa4022e67ca479d7da22028eb1d9f112abb0  episode-five-r9-1c8b86b9.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
