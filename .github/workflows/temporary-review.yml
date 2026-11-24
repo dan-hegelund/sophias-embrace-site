@@ -14,12 +14,21 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/cee67a54c6d1722a296dd7c3cb6983c9295af73b >> episode-five-duet-9e3deffc.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/2e0273479397960bc03511168de1b5d05ce3eab9 >> episode-five-duet-9e3deffc.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/e9b5a70e287c94e8acb3a4ccd129c950b4ca2d10 >> episode-five-duet-9e3deffc.mp4
-          echo '9e3deffcb4f0d9b5c64fd237e79983b647ebef910270c1a8144af65f95a94882  episode-five-duet-9e3deffc.mp4' | sha256sum --check
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/d22af4a2f9b114cf2ab9117a2bcafe4576ee2abd >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/7e67cc6c96117c60382aba56fc7f41029b94feb6 >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/333ffb6974c7f950246f7bf96f57162772b381e9 >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/c2c4d0cc0745eff35ceea5ac1a9e4210d55834ad >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/56582bc8b01afe691202c973e8f83e71878e0360 >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/75f99b1baee36130165c7da60296416e753e9623 >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/c5cb91a535eefc1c09305418fda12292707d5860 >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/27c197fa4f47528753ce6bf388bc67080a9bf30d >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/38378d4a04119f121516e65a45d4979cb2cc9259 >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/bd855ee579065d592d8fea7a372c93ffeaa0bdd6 >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/154c53a9d25ae0a35b96eefd69603f742c761dae >> episode-five-eyes-6f19e15a.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/f2ea1ac7b4d118b1c885c236296ff0b26a734322 >> episode-five-eyes-6f19e15a.mp4
+          echo '6f19e15af62c2e9d78df9d40e218c90cf3965b79610bc77061a7d85edef736d7  episode-five-eyes-6f19e15a.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-duet-9e3deffc.mp4 --clobber
+          gh release upload temporary-review episode-five-eyes-6f19e15a.mp4 --clobber
