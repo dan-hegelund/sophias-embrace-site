@@ -14,15 +14,101 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/b74f2e8f718df5d0f782dbb39b9c65d830f4762e >> episode-five-ending-53beac73.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/2b81620951b3be0ec49c296f0268655b97e7faab >> episode-five-ending-53beac73.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/c742b54a55e104d065b5f9a7d901e902f89be45e >> episode-five-ending-53beac73.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/f10b30d49436750fd6a64fa562671b5096983d62 >> episode-five-ending-53beac73.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/f1dbf2ea63dd05ca92a3b5be2cd6682d40f7322b >> episode-five-ending-53beac73.mp4
-          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/1b527b7f06827d212b34f69960e31d9b2c2b9d82 >> episode-five-ending-53beac73.mp4
-          echo '53beac730ad7084972b3f6af93c113e5b4dbd2b20897efdcde89a1ec4d8177d8  episode-five-ending-53beac73.mp4' | sha256sum --check
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/e45e0a203e816ce7c8d813c104f35b7712068536 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/9667c213292edc152a14a53060238095e8017e0c >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/60b75b048088997ca011bf24107408c306990e8c >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/192fd8ecd8c84b5a81e28443c80173f8bcd79e25 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/e0bd4ebe6d801990441e07faff95c774ecc82d80 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/718379659c0be05cfd2017b11c94a11cb662e2e6 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/a4fd65a69a80f4187b33b16dcd8a4125decd2f9e >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/8bd3fe00032a961f76c2d45d6b594b0853223b14 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/97d5792ca1984c389291d13560b2f397148673f8 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/4837bee4b9b8de98a9f48fb4f92250987d513e77 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/2dacc7c5e360e3a36eed3450392f54a5601b317a >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/fb2cbb5b279fb71a570c9e5c48bb54df89ad2ca1 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/820ab2a75dfa45b9fb151ffe89715909563688c1 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/f37192f8973c08049e4a8e99a281e70880133e83 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/537022117cba8d151339bafb54ced0b66b3bf54d >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/7b1113edcc572de84a85644b65523dc4bd58e30f >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/b113efd4ddcbe0760ac7e445a6bcb9ee224fa78f >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/1123315b0099931ca22f11dae34a1aa6f0f8b7ef >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/0bc608f7e6c9be6163491b8c3f862f8f997edf70 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/34b451854eec8a742964d787861fb904cdaabd0e >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/a9269e479c73f18d0e37bcdc9719491058682bf0 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/24c8eeab754897d167f2ae5c9986b98e3952e497 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/a2f298af549fa1e51072c3134fa173da4cc15ba6 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/f0694313f9ef58b3aab6cf82073f8e4576d93cc1 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/84901122cd47646e085608810a0d08e8256d22d3 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/ac2819e57da19ad747550f8536bf9ffe3f1d1e5b >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/570dfafcbde11d1a953abbb297c2e2db4a9f8a5c >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/9a156852af00895bcc15edd5712d8e83e9e53269 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/c30d4d224f871ba1ac0d3e2a006c6d0bb9606402 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/ad4f74cf9d9dcb5b0d282d07ea13f9d249c91b1c >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/2e761752634b04d945b8f5f991aeab4183056d7a >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/b16595cf97610ac14f5a557b47e4d62f6883864b >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/86c09e6f40d73fa09489e6efcc6588c929eefca1 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/7a4a9be88d8d2430d4356ff5e2dbd88c9e158a57 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/61b6bb7a4e3bf24080665de965a5154b7543c470 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/4e5d4fa3b66830ad8882b6d69ab32125fd77a518 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/d762bcae285f19f89a666f3cd60e58993013a48e >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/89482da7cc7a7979a74da0b91d6bf4731cffe2dd >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/368c33f9d605c74970aa9109f10095bb713e1c72 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/a836b81d9f837d4f0dcca3d55c5252900cfc65e9 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/7810a3d8c3005864b6d13e05ab2f5c6355848e3a >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/051471f66ce72ee95cb5cb753081b86f78acd264 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/e96600698b4bc9ef33746719c885c997de8577e4 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/e7de197b24aa61eb4ea6d6c9b97120d7c6e96fef >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/f222c31515b1c5f17d813dfb9771b589cd40398c >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/c4b6fc77894f02b7e9b4b852fc45a5d98c5c4383 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/e62fd60de3e61fce01312fc0bdcbc398e6db3977 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/75b55132b522854db42a0f24bcbab15194fc38d9 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/ffe2f829354f7593173316d46513d43fdd25cab7 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/065e8665e5555488f97646cdb882d3b2d37dbe44 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/c79e869d372a6947950c8836f3513125ad5e1091 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/760cd3d1c46d3cb913786858de4371b7b1bcfebd >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/8bec4893ed20d1eb9a90cd068bc8aa6d056e0f57 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/02cb891bd845acec172113673f640a36c1f391bf >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/d1db0571832e7eba3cc9d611cd99e7ae3bdb5064 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/7de9969b14ee7b04ca595b5d2489ff13cc91905c >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/1c80a68143895cd203e00f69d6c6e712f9b70447 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/25e46273c2cc1c785159327a20c95e6c81090192 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/ddf3e48f66e42d1f7c1072fdab9a9209e7a15cc2 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/7510db58ce4a5778337d9b4342d4dc5fcf64a2f0 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/b512310cba29510b3b3e2d5b9e53fac0fbea79e2 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/22b6e1d77a81194ca41d67270bb7f177f1e2c077 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/bb782c395dd4d3b6ccebef58622e79bd8adb23d4 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/189ccd1fc5ab85ff1b56ddf8b73505d4415d0202 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/a83c0fd1064003836f39a2a350123623d30b2c33 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/4326690b0b103daa71f4682759587a1e78f96409 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/d8339f1541e2e9af3c02fdd9fb4c1e17f58af3c6 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/9b4934238b4cf1f7e7eb5bcd7364c6716207b4c4 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/2472d38f2231eefa76a6db052d42302c96730e00 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/12dfd8976efc5859fc365e93d04d16939618eff0 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/05a908bf91670027eabcdc47b8187e046f2ee2a7 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/6ca7ebcdab5aad7edf480ea28efaff32213048ef >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/ec50ce4a9a0ebe1aa90fdd76a98cc19ec987fc09 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/a749a1546767c0bf07233e5bb5e12a6ee42f9700 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/5a2289b610fd84bf10a67e001697ba131e113f15 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/7dc9511bd8c3e6f7a1342cc154786034e2adf743 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/309a1a3a4976cedd73b25985dba3c5f8ddc8e1aa >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/774d03d317511a470a84550eeb3000333aa6fbf0 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/117589c18c556f6d06fba0d0ca27e4b910c171ad >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/dec220b0ca42623abd012d0e9ccb889e2366a527 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/4939c7ee22d3b05b8d68023a5c29954f273f60dd >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/d1b905f4810c9eaf8bfcff8986b2104536dabce8 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/af7f4c41737f3c0d1ca4e7f8a6a60eec64148a40 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/518e8d0877bab8c8fd26c8324714c38e42308955 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/a21758dad120c70711919d269ea2728f9dc40cdb >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/8d5001e760f5fa6191b49783a10f540cb82251a8 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/167b50a56513644a457bade45b29a8daeb63afd6 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/03a53b730792de7a1ef5c80ee306dbaeaaa4b655 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/6c80b62b668b6620d5b43f6f833791a65e9d1596 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/90438bc9d9e9b53a6560fcb77c7358477a2734ad >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/2c29efe049dde211ddf27b3e9e2d9c8f7d047723 >> episode-five-picture-529cb02b.mp4
+          gh api -H 'Accept: application/vnd.github.raw+json' repos/$GH_REPO/git/blobs/1435dab763053be0180b71c54f11657ce8abc22a >> episode-five-picture-529cb02b.mp4
+          echo '529cb02b23c09036e054f3cfbb6aec4b5fe0b38db924e593f8196b86989b7e23  episode-five-picture-529cb02b.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-ending-53beac73.mp4 --clobber
+          gh release upload temporary-review episode-five-picture-529cb02b.mp4 --clobber
