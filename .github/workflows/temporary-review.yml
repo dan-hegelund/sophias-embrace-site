@@ -15,11 +15,11 @@ jobs:
         run: |
           set -euo pipefail
           mkdir fragments
-          seq -f "%02g" 0 3 | xargs -P 3 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 120 --output fragments/@ 'https://cordless-weather-linked-config.trycloudflare.com/kwwmMJ5qMxJnmVhk2-FjfVK9FgcmkHzw3NZGPA/@'
-          cat fragments/?? > episode-five-musical-review-dc2e4c2f.mp4
-          echo 'dc2e4c2f35de1814ee9a28f531b4caf0b2a414f7824e34fa624325d35b08cfd9  episode-five-musical-review-dc2e4c2f.mp4' | sha256sum --check
+          seq -f "%02g" 0 34 | xargs -P 3 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 120 --output fragments/@ 'https://cancellation-sys-construct-substance.trycloudflare.com/rirFUctjaGlYNpnKcg2dg-c8wCJ-l9Bgf6eNgQ/@'
+          cat fragments/?? > episode-five-sync-10-7c7ff29e.mp4
+          echo '7c7ff29ec570c072e6a7ce3b3f11d92f5eca7adcab11801977ee2a0f18661d37  episode-five-sync-10-7c7ff29e.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-musical-review-dc2e4c2f.mp4 --clobber
+          gh release upload temporary-review episode-five-sync-10-7c7ff29e.mp4 --clobber
