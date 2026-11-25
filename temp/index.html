@@ -32,7 +32,8 @@ const cue=new URLSearchParams(location.search).get('at');
 const times={palace:16,train:49,courtyard:161,ending:293};
 const musical=new URLSearchParams(location.search).get('v')==='dc2e4c2f';
 if(musical){v.src='https://github.com/dan-hegelund/sophias-embrace-site/releases/download/temporary-review/episode-five-musical-review-dc2e4c2f.mp4';v.removeAttribute('poster');v.setAttribute('aria-label','Episode Five musical edit review');document.querySelector('main p:last-of-type').textContent='1:04 · Drum timing and camera move · 1080p';}
-let initial=musical?(cue==='camera'?32:0):times[cue];
+const revision=new URLSearchParams(location.search).get('v');const vocal=revision===null||revision==='7c7ff29e';if(vocal){v.src='https://github.com/dan-hegelund/sophias-embrace-site/releases/download/temporary-review/episode-five-sync-10-7c7ff29e.mp4';v.removeAttribute('poster');v.setAttribute('aria-label','Episode Five vocal sync review');document.querySelector('main p:last-of-type').textContent='5:26 · Musical cut 10 · 1080p';}
+let initial=vocal?(cue==='duet'?240:cue==='solo'?268:0):musical?(cue==='camera'?32:0):times[cue];
 function seekToCue(){if(initial!==undefined && v.readyState>=1){v.currentTime=initial;initial=undefined;}}
 v.addEventListener('loadedmetadata',seekToCue,{once:true});seekToCue();
 start.onclick=()=>{seekToCue();v.play().catch(()=>{start.textContent='Tap to retry';});};
