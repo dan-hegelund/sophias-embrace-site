@@ -30,7 +30,9 @@
 const v=document.querySelector('video'), start=document.querySelector('#start');
 const cue=new URLSearchParams(location.search).get('at');
 const times={palace:16,train:49,courtyard:161,ending:293};
-let initial=times[cue];
+const musical=new URLSearchParams(location.search).get('v')==='dc2e4c2f';
+if(musical){v.src='https://github.com/dan-hegelund/sophias-embrace-site/releases/download/temporary-review/episode-five-musical-review-dc2e4c2f.mp4';v.removeAttribute('poster');v.setAttribute('aria-label','Episode Five musical edit review');document.querySelector('main p:last-of-type').textContent='1:04 · Drum timing and camera move · 1080p';}
+let initial=musical?(cue==='camera'?32:0):times[cue];
 function seekToCue(){if(initial!==undefined && v.readyState>=1){v.currentTime=initial;initial=undefined;}}
 v.addEventListener('loadedmetadata',seekToCue,{once:true});seekToCue();
 start.onclick=()=>{seekToCue();v.play().catch(()=>{start.textContent='Tap to retry';});};
