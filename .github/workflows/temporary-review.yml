@@ -15,11 +15,11 @@ jobs:
         run: |
           set -euo pipefail
           mkdir fragments
-          seq -f "%02g" 0 43 | xargs -P 3 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 120 --output fragments/@ 'https://batman-eye-bottles-uses.trycloudflare.com/ggfvSRO4vcYU8Ngtkpaufn3oztn6ynFNtalBNw/@'
-          cat fragments/?? > episode-five-full21-d37d4dee.mp4
-          echo 'd37d4dee8f033e6c4ab6a4ec6723e1a4961e1da3bab2520c7cd42bfb7d1463ab  episode-five-full21-d37d4dee.mp4' | sha256sum --check
+          seq -f "%02g" 0 5 | xargs -P 3 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 120 --output fragments/@ 'https://realized-teach-genius-lined.trycloudflare.com/8IHWptmg9YcsaWB0eujCiCok3q4i1wtAN1JWxg/@'
+          cat fragments/?? > episode-five-opening22-8a278295.mp4
+          echo '8a278295c5eb1e9d33998c07f221029090014e7abc9c142f16b9fa00f33b7cf4  episode-five-opening22-8a278295.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-full21-d37d4dee.mp4 --clobber
+          gh release upload temporary-review episode-five-opening22-8a278295.mp4 --clobber
