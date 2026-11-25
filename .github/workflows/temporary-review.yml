@@ -15,11 +15,11 @@ jobs:
         run: |
           set -euo pipefail
           mkdir fragments
-          seq -f "%02g" 0 37 | xargs -P 3 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 120 --output fragments/@ 'https://narrow-soma-ste-trinity.trycloudflare.com/0LKDW9MrS7BuhR4_19MSH1wloaUozCmqlpzi9A/@'
-          cat fragments/?? > episode-five-full16-8fec00fa.mp4
-          echo '8fec00fa8a45d876ac8da5dc2abc1cb7691b37696834a09664bcf7606b419534  episode-five-full16-8fec00fa.mp4' | sha256sum --check
+          seq -f "%02g" 0 37 | xargs -P 3 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 120 --output fragments/@ 'https://canberra-boot-inclusion-duties.trycloudflare.com/gN4baeVw8tKGaUPJUnZJ1GlMljQX3rjaonEPNQ/@'
+          cat fragments/?? > episode-five-full16-6bb10125.mp4
+          echo '6bb1012541802a4b6b990ee6ccad1fcbcdfca1c13acaffcb479ed3a6b32c2bd9  episode-five-full16-6bb10125.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-full16-8fec00fa.mp4 --clobber
+          gh release upload temporary-review episode-five-full16-6bb10125.mp4 --clobber
