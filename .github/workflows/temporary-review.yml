@@ -15,11 +15,11 @@ jobs:
         run: |
           set -euo pipefail
           mkdir fragments
-          seq -f "%02g" 0 37 | xargs -P 3 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 120 --output fragments/@ 'https://canberra-boot-inclusion-duties.trycloudflare.com/gN4baeVw8tKGaUPJUnZJ1GlMljQX3rjaonEPNQ/@'
-          cat fragments/?? > episode-five-full16-6bb10125.mp4
-          echo '6bb1012541802a4b6b990ee6ccad1fcbcdfca1c13acaffcb479ed3a6b32c2bd9  episode-five-full16-6bb10125.mp4' | sha256sum --check
+          seq -f "%02g" 0 3 | xargs -P 3 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 120 --output fragments/@ 'https://levitra-game-tobago-rounds.trycloudflare.com/1O77iKQsaizh1bZCNrDDh6LywPNevDpBO3eOeA/@'
+          cat fragments/?? > episode-five-voronov17-d9dcaabb.mp4
+          echo 'd9dcaabb927f3fb7debfec9ff8ffcecba5208732e58173ffb17af581a7144b2d  episode-five-voronov17-d9dcaabb.mp4' | sha256sum --check
           if ! gh release view temporary-review >/dev/null 2>&1; then
             gh release create temporary-review --target main --prerelease \
               --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
           fi
-          gh release upload temporary-review episode-five-full16-6bb10125.mp4 --clobber
+          gh release upload temporary-review episode-five-voronov17-d9dcaabb.mp4 --clobber
