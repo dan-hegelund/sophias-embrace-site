@@ -1,4 +1,4 @@
-name: Stage English episode for review
+name: Stage commentary opening for review
 on:
   push:
     branches: [preview-media-upload]
@@ -15,9 +15,15 @@ jobs:
         run: |
           set -euo pipefail
           file=phone-review/e5-english-cut44.mp4
-          curl -fsSL --retry 5 --retry-all-errors --max-time 120 'https://thumbzilla-hired-push-cleveland.trycloudflare.com/UL7nzi_gMuzX-e-e-Iq33A/review.mp4' -o "$file"
+          for n in 0 1 2 3 4; do
+            start=$((n*4000000))
+            curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r "$start-$((start+3999999))" 'https://thumbzilla-hired-push-cleveland.trycloudflare.com/UL7nzi_gMuzX-e-e-Iq33A/review.mp4' -o "/tmp/english-$n" &
+          done
+          wait
+          cat /tmp/english-{0,1,2,3,4} > "$file"
           echo "2f186c47d14d1898df4fcfe2fa0296264d5688c728c1f20709aba1ffc48fd63f  $file" | sha256sum --check
           gh release upload temporary-review "$file" --clobber
           git add "$file"
-          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Episode Five English recording reference"
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Episode Five commentary welcome"
+          git pull --rebase origin preview-media-upload
           git push origin HEAD:preview-media-upload
