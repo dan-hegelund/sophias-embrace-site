@@ -52,7 +52,7 @@ if (new URLSearchParams(location.search).get('review') === 'zemlya-craft01') {
  document.querySelector('main video').src = media;
  document.querySelector('#open-film').href = media;
 } else if (new URLSearchParams(location.search).get('review') === 'zemlya-full04') {
- document.title = 'Zemlya’s Song · full revision 04 · Picture cut 01';
+ document.title = 'Zemlya’s Song · full revision 04';
  const media = 'https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@07835eeed25dda8a2499ad8039620b9ca5ff8bf3/phone-review/zemlya-full04.mp4';
  document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace</p><h1>Zemlya’s Song · full revision 04</h1><p>Full movie · 3:57</p><video controls playsinline preload="metadata" aria-label="Full Zemlya movie · canon revision 04"></video><p><a id="open-film">Open video directly</a></p>';
  document.querySelector('main video').src = media;
