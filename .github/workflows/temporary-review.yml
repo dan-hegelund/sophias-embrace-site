@@ -1,4 +1,4 @@
-name: Stage recorded commentary for film review
+name: Update encrypted Zemlya storyboard
 on:
   push:
     branches: [preview-media-upload]
@@ -9,27 +9,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify and host the recorded commentary
-        env:
-          GH_TOKEN: ${{ github.token }}
+        with:
+          ref: main
+      - name: Update the approved audio and timings
         run: |
           set -euo pipefail
-          file=phone-review/e5-dan-clone07.mp4
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://mandatory-prospect-revenues-curious.trycloudflare.com/9B6U2s2F2Q-7negIGPmQDl2M/review.mp4" -o /tmp/part00 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 2000000-3999999 "https://mandatory-prospect-revenues-curious.trycloudflare.com/9B6U2s2F2Q-7negIGPmQDl2M/review.mp4" -o /tmp/part01 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 4000000-5999999 "https://mandatory-prospect-revenues-curious.trycloudflare.com/9B6U2s2F2Q-7negIGPmQDl2M/review.mp4" -o /tmp/part02 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://mandatory-prospect-revenues-curious.trycloudflare.com/9B6U2s2F2Q-7negIGPmQDl2M/review.mp4" -o /tmp/part03 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 8000000-9999999 "https://mandatory-prospect-revenues-curious.trycloudflare.com/9B6U2s2F2Q-7negIGPmQDl2M/review.mp4" -o /tmp/part04 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 10000000-11999999 "https://mandatory-prospect-revenues-curious.trycloudflare.com/9B6U2s2F2Q-7negIGPmQDl2M/review.mp4" -o /tmp/part05 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://mandatory-prospect-revenues-curious.trycloudflare.com/9B6U2s2F2Q-7negIGPmQDl2M/review.mp4" -o /tmp/part06 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 14000000-15999999 "https://mandatory-prospect-revenues-curious.trycloudflare.com/9B6U2s2F2Q-7negIGPmQDl2M/review.mp4" -o /tmp/part07 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 16000000-17999999 "https://mandatory-prospect-revenues-curious.trycloudflare.com/9B6U2s2F2Q-7negIGPmQDl2M/review.mp4" -o /tmp/part08 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 18000000-18992733 "https://mandatory-prospect-revenues-curious.trycloudflare.com/9B6U2s2F2Q-7negIGPmQDl2M/review.mp4" -o /tmp/part09 &
+          file=storyboard/zemlya/board.bin
+          test "$(git rev-parse HEAD:$file)" = eca953818c2390bc961b0099b2f10fd6e21e3bec
+          curl -fsSL --max-time 240 --retry 3 --retry-all-errors -r 0-1999999 "https://expanded-republican-mistress-intensity.trycloudflare.com/ZCpIakDbpY5amD4D8KxCUb2g/board.bin" -o /tmp/z00 &
+          curl -fsSL --max-time 240 --retry 3 --retry-all-errors -r 2000000-3999999 "https://expanded-republican-mistress-intensity.trycloudflare.com/ZCpIakDbpY5amD4D8KxCUb2g/board.bin" -o /tmp/z01 &
+          curl -fsSL --max-time 240 --retry 3 --retry-all-errors -r 4000000-5999999 "https://expanded-republican-mistress-intensity.trycloudflare.com/ZCpIakDbpY5amD4D8KxCUb2g/board.bin" -o /tmp/z02 &
+          curl -fsSL --max-time 240 --retry 3 --retry-all-errors -r 6000000-7999999 "https://expanded-republican-mistress-intensity.trycloudflare.com/ZCpIakDbpY5amD4D8KxCUb2g/board.bin" -o /tmp/z03 &
+          curl -fsSL --max-time 240 --retry 3 --retry-all-errors -r 8000000-9999999 "https://expanded-republican-mistress-intensity.trycloudflare.com/ZCpIakDbpY5amD4D8KxCUb2g/board.bin" -o /tmp/z04 &
+          curl -fsSL --max-time 240 --retry 3 --retry-all-errors -r 10000000-11999999 "https://expanded-republican-mistress-intensity.trycloudflare.com/ZCpIakDbpY5amD4D8KxCUb2g/board.bin" -o /tmp/z05 &
+          curl -fsSL --max-time 240 --retry 3 --retry-all-errors -r 12000000-12290379 "https://expanded-republican-mistress-intensity.trycloudflare.com/ZCpIakDbpY5amD4D8KxCUb2g/board.bin" -o /tmp/z06 &
           wait
-          cat /tmp/part[0-9][0-9] > "$file"
-          echo "3cccb52eb2cc5dba977d6ab49d9f2e9ddf1f07224f0a5d424b2520b2bf6eaaa9  $file" | sha256sum --check
-          gh release upload temporary-review "$file" --clobber
+          cat /tmp/z[0-9][0-9] > "$file"
+          echo "3ef900a08fa50f4e6b474f8ce3272832deda5f09891758c528898c6ad84c57c7  $file" | sha256sum --check
           git add "$file"
-          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Dan's recorded Episode Five commentary for review"
-          git pull --rebase origin preview-media-upload
-          git push origin HEAD:preview-media-upload
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Retime the Zemlya storyboard to approved take 25A"
+          git pull --rebase origin main
+          git push origin HEAD:main
