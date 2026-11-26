@@ -57,6 +57,12 @@ if (new URLSearchParams(location.search).get('review') === 'zemlya-craft01') {
  document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace</p><h1>Zemlya’s Song · full revision 04</h1><p>Full movie · 3:57</p><video controls playsinline preload="metadata" aria-label="Full Zemlya movie · canon revision 04"></video><p><a id="open-film">Open video directly</a></p>';
  document.querySelector('main video').src = media;
  document.querySelector('#open-film').href = media;
+} else if (new URLSearchParams(location.search).get('review') === 'zemlya-full05') {
+ document.title = 'Zemlya’s Song · full revision 05';
+ const media = 'https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@73621407687bbbe61d67e6389b8486dfdc80309e/phone-review/zemlya-full05.mp4';
+ document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace</p><h1>Zemlya’s Song · full revision 05</h1><p>Full movie · 3:57</p><video controls playsinline preload="metadata" aria-label="Full Zemlya picture cut"></video><p><a id="open-film">Open video directly</a></p>';
+ document.querySelector('main video').src = media;
+ document.querySelector('#open-film').href = media;
 } else if (new URLSearchParams(location.search).get('review') === 'zemlya-picture01') {
  document.title = 'Zemlya’s Song · Picture cut 01';
  const media = 'https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@45345379d144cdd2a4958bc3cd5bc447ad5c92dd/phone-review/zemlya-picture01-full.mp4';
