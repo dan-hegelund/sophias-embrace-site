@@ -14,12 +14,23 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          mkdir fragments
-          seq -f "%02g" 0 44 | xargs -P 7 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 120 --output fragments/@ 'https://attorneys-enquiries-buildings-liverpool.trycloudflare.com/kIk0mCxt60WTfmqGYfnr4rYC7w78HD4gwiGkoQ/@'
-          cat fragments/?? > episode-five-full28-ec30231d.mp4
-          echo 'ec30231ddbec101d6b305f14657809034da9faa10017ab55df2942d7b9bf3854  episode-five-full28-ec30231d.mp4' | sha256sum --check
-          if ! gh release view temporary-review >/dev/null 2>&1; then
-            gh release create temporary-review --target main --prerelease \
-              --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
-          fi
-          gh release upload temporary-review episode-five-full28-ec30231d.mp4 --clobber
+          curl --fail --location --retry 5 --retry-all-errors --output tail.bin 'https://units-reading-compatible-americas.trycloudflare.com/NRQlavY_SYC1T6W_FR0euLuvlDUk6ld1ykGu6g/00'
+          for n in $(seq 1 90); do
+            if gh release download temporary-review --pattern 'episode-five-full28-ec30231d.mp4' --clobber; then break; fi
+            sleep 5
+          done
+          python3 - <<'PYTHON'
+          from pathlib import Path
+          with open('tail.bin','rb') as patch, open('episode-five-full28-ec30231d.mp4','rb') as old, open('episode-five-full29-8905202f.mp4','wb') as target:
+              target.write(patch.read(167069))
+              old.seek(167069)
+              left=531523228
+              while left:
+                  block=old.read(min(1048576,left))
+                  assert block
+                  target.write(block)
+                  left-=len(block)
+              target.write(patch.read())
+          PYTHON
+          echo '8905202fc650193a5a6b8d6872f606f8ba97a5129c95f2dae1c6646284c6a37a  episode-five-full29-8905202f.mp4' | sha256sum --check
+          gh release upload temporary-review 'episode-five-full29-8905202f.mp4' --clobber
