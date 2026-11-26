@@ -14,20 +14,19 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          file=phone-review/zemlya-picture01-full.mp4
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://liked-smell-storm-north.trycloudflare.com/_uXfIhoQTi78JD3RxUzWl78R/review.mp4" -o /tmp/part00 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 2000000-3999999 "https://liked-smell-storm-north.trycloudflare.com/_uXfIhoQTi78JD3RxUzWl78R/review.mp4" -o /tmp/part01 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 4000000-5999999 "https://liked-smell-storm-north.trycloudflare.com/_uXfIhoQTi78JD3RxUzWl78R/review.mp4" -o /tmp/part02 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://liked-smell-storm-north.trycloudflare.com/_uXfIhoQTi78JD3RxUzWl78R/review.mp4" -o /tmp/part03 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 8000000-9999999 "https://liked-smell-storm-north.trycloudflare.com/_uXfIhoQTi78JD3RxUzWl78R/review.mp4" -o /tmp/part04 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 10000000-11999999 "https://liked-smell-storm-north.trycloudflare.com/_uXfIhoQTi78JD3RxUzWl78R/review.mp4" -o /tmp/part05 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://liked-smell-storm-north.trycloudflare.com/_uXfIhoQTi78JD3RxUzWl78R/review.mp4" -o /tmp/part06 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 14000000-15999999 "https://liked-smell-storm-north.trycloudflare.com/_uXfIhoQTi78JD3RxUzWl78R/review.mp4" -o /tmp/part07 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 16000000-17999999 "https://liked-smell-storm-north.trycloudflare.com/_uXfIhoQTi78JD3RxUzWl78R/review.mp4" -o /tmp/part08 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 18000000-19361458 "https://liked-smell-storm-north.trycloudflare.com/_uXfIhoQTi78JD3RxUzWl78R/review.mp4" -o /tmp/part09 &
+          file=phone-review/zemlya-action02.mp4
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part00 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 2000000-3999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part01 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 4000000-5999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part02 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part03 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 8000000-9999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part04 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 10000000-11999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part05 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part06 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 14000000-15999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part07 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 16000000-16394888 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part08 &
           wait
           cat /tmp/part[0-9][0-9] > "$file"
-          echo "01b6743138c3338935d9bcbbb9236831ebb0cc7237476f72d11ac6af5a1af1a2  $file" | sha256sum --check
+          echo "380fe9b543749adecb0ec2cc1ca6fc970d043175b51301a5a6a1b215e5a2c20e  $file" | sha256sum --check
           gh release upload temporary-review "$file" --clobber
           git add "$file"
           git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Zemlya picture edit for review"
