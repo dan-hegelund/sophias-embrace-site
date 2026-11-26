@@ -31,7 +31,9 @@
     <div role="status" id="message"></div>
   </main>
 <script>
-if (new URLSearchParams(location.search).get('review') === 'e5-dan-memo06') {
+if (new URLSearchParams(location.search).get('review') === 'e5-dan-clone07') {
+ document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace · S01E05</p><h1>The Anomaly Speaks</h1><p>Dan’s cloned-voice commentary · 5:26</p><video controls playsinline preload="metadata" src="https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@preview-media-upload/phone-review/e5-dan-clone07.mp4"></video><p><a href="https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@preview-media-upload/phone-review/e5-dan-clone07.mp4">Open video directly</a></p>';
+} else if (new URLSearchParams(location.search).get('review') === 'e5-dan-memo06') {
  document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace · S01E05</p><h1>The Anomaly Speaks</h1><p>Dan’s recorded commentary · 5:26</p><video controls playsinline preload="metadata" src="https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@preview-media-upload/phone-review/e5-dan-memo06.mp4"></video><p><a href="https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@preview-media-upload/phone-review/e5-dan-memo06.mp4">Open video directly</a></p>';
 } else if (new URLSearchParams(location.search).get('review') === 'e5-english-final') {
  document.title = 'The Anomaly Speaks · English episode';
