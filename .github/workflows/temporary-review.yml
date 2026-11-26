@@ -1,22 +1,23 @@
-name: Create the lightweight commentary player copy
+name: Stage commentary opening for review
 on:
   push:
     branches: [preview-media-upload]
 permissions:
   contents: write
 jobs:
-  prepare:
+  stage:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Prepare a compact MP4 for Apple playback
+      - name: Verify and host the revised opening
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          gh release download temporary-review --pattern 'e5-commentary-dan-53b9a715.mp4' --dir "$RUNNER_TEMP"
-          which ffmpeg || (sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg)
-          ffmpeg -hide_banner -loglevel error -i "$RUNNER_TEMP/e5-commentary-dan-53b9a715.mp4" -vf scale=854:480 -c:v libx264 -preset veryfast -b:v 350k -maxrate 520k -bufsize 900k -g 48 -pix_fmt yuv420p -c:a aac -b:a 96k -movflags +faststart phone-review/dan04-mobile.mp4
-          git add phone-review/dan04-mobile.mp4
-          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Add lightweight commentary MP4 to temporary review staging"
+          file=phone-review/e5-commentary05-opening-b572be44.mp4
+          curl -fsSL --retry 5 --retry-all-errors --max-time 120 'https://herald-cuisine-use-arthur.trycloudflare.com/ShoO9uLF-iusoZbfej-y3A/review.mp4' -o "$file"
+          echo "b572be44018d94a3000018b118c5b066a2dbf69caabfbc9e961b985da45adb6f  $file" | sha256sum --check
+          gh release upload temporary-review "$file" --clobber
+          git add "$file"
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Episode Five commentary welcome"
           git push origin HEAD:preview-media-upload
