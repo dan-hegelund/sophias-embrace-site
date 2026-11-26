@@ -1,23 +1,25 @@
-name: Host the current review clip
+name: Prepare commentary phone stream
 on:
   push:
     branches: [preview-media-upload]
 permissions:
   contents: write
 jobs:
-  upload:
+  prepare:
     runs-on: ubuntu-latest
     steps:
-      - name: Publish the temporary asset
+      - uses: actions/checkout@v4
+      - name: Package the checked review copy for mobile playback
         env:
           GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          curl --fail --location --retry 4 --output e5-commentary-dan-53b9a715.mp4 'https://valued-permitted-narrow-adapted.trycloudflare.com/AumhXXGq33-vjCPXj_WyUg/review.mp4?v=dan04'
-          echo '53b9a7152e148b7acb1deda5a5fb14cb717b7bff8fe5aa38568e32f508449c1e  e5-commentary-dan-53b9a715.mp4' | sha256sum --check
-          if ! gh release view temporary-review >/dev/null 2>&1; then
-            gh release create temporary-review --target main --prerelease \
-              --title 'Temporary review media' --notes 'Current review clip for sophiasembrace.com/temp/.'
-          fi
-          gh release upload temporary-review e5-commentary-dan-53b9a715.mp4 --clobber
+          gh release download temporary-review --pattern 'e5-commentary-dan-53b9a715.mp4' --dir "$RUNNER_TEMP"
+          which ffmpeg || (sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg)
+          mkdir -p phone-review
+          ffmpeg -nostdin -v error -i "$RUNNER_TEMP/e5-commentary-dan-53b9a715.mp4" -map 0:v -map 0:a -c copy -f hls -hls_time 8 -hls_list_size 0 -hls_playlist_type vod -hls_segment_filename 'phone-review/dan04-%03d.ts' phone-review/dan04.m3u8
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add phone-review
+          git commit -m "Stage temporary commentary stream for iPhone"
+          git push origin HEAD:preview-media-upload
