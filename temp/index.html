@@ -39,6 +39,12 @@ if (new URLSearchParams(location.search).get('review') === 'zemlya-craft01') {
  player.src = media;
  document.querySelector('#open-test').href = media;
  document.querySelectorAll('[data-sec]').forEach(button => button.onclick = () => { player.currentTime = Number(button.dataset.sec); player.play().catch(() => {}); });
+} else if (new URLSearchParams(location.search).get('review') === 'zemlya-action02') {
+ document.title = 'Zemlya’s Song · action study · Picture cut 01';
+ const media = 'https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@1fe8e417b155c6be2f1919c12c30636f873c68ab/phone-review/zemlya-action02.mp4';
+ document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace</p><h1>Zemlya’s Song · action study</h1><p>Robot persecution and Sophia’s pursuit · 1:11</p><video controls playsinline preload="metadata" aria-label="Zemlya action direction study"></video><p><a id="open-film">Open video directly</a></p>';
+ document.querySelector('main video').src = media;
+ document.querySelector('#open-film').href = media;
 } else if (new URLSearchParams(location.search).get('review') === 'zemlya-picture01') {
  document.title = 'Zemlya’s Song · Picture cut 01';
  const media = 'https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@45345379d144cdd2a4958bc3cd5bc447ad5c92dd/phone-review/zemlya-picture01-full.mp4';
