@@ -15,13 +15,16 @@ jobs:
         run: |
           set -euo pipefail
           file=phone-review/zemlya-full07b.mp4
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?part=0" -o /tmp/part00 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 3000000-4999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?part=1" -o /tmp/part01 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?part=2" -o /tmp/part02 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 9000000-10999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?part=3" -o /tmp/part03 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?part=4" -o /tmp/part04 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 15000000-16999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?part=5" -o /tmp/part05 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 18000000-19952459 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?part=6" -o /tmp/part06 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?v=final&part=0" -o /tmp/part00 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 2000000-3999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?v=final&part=1" -o /tmp/part01 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 4000000-5999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?v=final&part=2" -o /tmp/part02 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?v=final&part=3" -o /tmp/part03 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 8000000-9999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?v=final&part=4" -o /tmp/part04 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 10000000-11999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?v=final&part=5" -o /tmp/part05 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?v=final&part=6" -o /tmp/part06 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 14000000-15999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?v=final&part=7" -o /tmp/part07 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 16000000-17999999 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?v=final&part=8" -o /tmp/part08 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 18000000-19952459 "https://marine-cars-assure-quarterly.trycloudflare.com/rXAlxkDsBV-p0d6qruN_jBRg/review.mp4?v=final&part=9" -o /tmp/part09 &
           wait
           cat /tmp/part[0-9][0-9] > "$file"
           echo "105d370aac18066ba601b0f4981c9a8129ff319655587404c3793e07ba47c1b5  $file" | sha256sum --check
