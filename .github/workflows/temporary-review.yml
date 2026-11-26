@@ -14,19 +14,19 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          file=phone-review/zemlya-action02.mp4
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part00 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 2000000-3999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part01 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 4000000-5999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part02 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part03 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 8000000-9999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part04 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 10000000-11999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part05 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part06 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 14000000-15999999 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part07 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 16000000-16394888 "https://experiences-decade-political-gbp.trycloudflare.com/VAdbqGtSFVHlUEDkoVggksb1/review.mp4" -o /tmp/part08 &
+          file=phone-review/zemlya-canon03.mp4
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://particle-perceived-organize-yet.trycloudflare.com/YFhD_vHt3MrGzvq8232RDdrx/review.mp4" -o /tmp/part00 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 2000000-3999999 "https://particle-perceived-organize-yet.trycloudflare.com/YFhD_vHt3MrGzvq8232RDdrx/review.mp4" -o /tmp/part01 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 4000000-5999999 "https://particle-perceived-organize-yet.trycloudflare.com/YFhD_vHt3MrGzvq8232RDdrx/review.mp4" -o /tmp/part02 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://particle-perceived-organize-yet.trycloudflare.com/YFhD_vHt3MrGzvq8232RDdrx/review.mp4" -o /tmp/part03 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 8000000-9999999 "https://particle-perceived-organize-yet.trycloudflare.com/YFhD_vHt3MrGzvq8232RDdrx/review.mp4" -o /tmp/part04 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 10000000-11999999 "https://particle-perceived-organize-yet.trycloudflare.com/YFhD_vHt3MrGzvq8232RDdrx/review.mp4" -o /tmp/part05 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://particle-perceived-organize-yet.trycloudflare.com/YFhD_vHt3MrGzvq8232RDdrx/review.mp4" -o /tmp/part06 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 14000000-15999999 "https://particle-perceived-organize-yet.trycloudflare.com/YFhD_vHt3MrGzvq8232RDdrx/review.mp4" -o /tmp/part07 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 16000000-17352998 "https://particle-perceived-organize-yet.trycloudflare.com/YFhD_vHt3MrGzvq8232RDdrx/review.mp4" -o /tmp/part08 &
           wait
           cat /tmp/part[0-9][0-9] > "$file"
-          echo "380fe9b543749adecb0ec2cc1ca6fc970d043175b51301a5a6a1b215e5a2c20e  $file" | sha256sum --check
+          echo "31a387839afeba3e8b8f7739e20559c3b7dc0683000c730d013fa5992ee0e295  $file" | sha256sum --check
           gh release upload temporary-review "$file" --clobber
           git add "$file"
           git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Zemlya picture edit for review"
