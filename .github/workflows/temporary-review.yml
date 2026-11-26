@@ -15,19 +15,24 @@ jobs:
         run: |
           set -euo pipefail
           mkdir fragments
-          seq -f '%02g' 0 0 | xargs -P 4 -I @ curl -fLsS --retry 4 --retry-all-errors --max-time 120 --output fragments/@ 'https://canyon-relocation-fate-strengthen.trycloudflare.com/6DDK9Z8oFJeKTSk-xtajpk6KuyqPke6dNZ1fsw/@'
-          cat fragments/?? > changes.bin
-          gh release download temporary-review --pattern 'episode-five-full31-3d0590ea.mp4'
+          seq -f '%02g' 0 5 | xargs -P 6 -I @ curl --fail --location --retry 5 --retry-all-errors --connect-timeout 15 --max-time 150 --output fragments/@ 'https://vat-fellow-says-coverage.trycloudflare.com/3fOBC6qC1XlILafnbEkVkxWOHiENu_Ph488xqQ/@'
+          cat fragments/?? > tail.bin
+          for n in $(seq 1 90); do
+            if gh release download temporary-review --pattern 'episode-five-full29-8905202f.mp4' --clobber; then break; fi
+            sleep 5
+          done
           python3 - <<'PYTHON'
-          with open('changes.bin','rb') as patch,open('episode-five-full31-3d0590ea.mp4','rb') as old,open('episode-five-full32-91cd3775.mp4','wb') as out:
-              for source,start,size in [['new', 0, 262144], ['old', 262172, 59506688], ['new', 262144, 4980736], ['old', 66785491, 121110528], ['new', 5242880, 6815744], ['old', 194934879, 345777309]]:
-                  handle=old if source=='old' else patch
-                  handle.seek(start)
-                  while size:
-                      block=handle.read(min(size,1048576))
-                      assert block
-                      out.write(block)
-                      size-=len(block)
+          from pathlib import Path
+          with open('tail.bin','rb') as patch, open('episode-five-full29-8905202f.mp4','rb') as old, open('episode-five-full30-372d6c17.mp4','wb') as target:
+              target.write(patch.read(167069))
+              old.seek(167069)
+              left=476789923
+              while left:
+                  block=old.read(min(1048576,left))
+                  assert block
+                  target.write(block)
+                  left-=len(block)
+              target.write(patch.read())
           PYTHON
-          echo '91cd37753404fb4bf4647e5e9f7f6ef570cd463ee6d0fcc9e992d654ef3c7938  episode-five-full32-91cd3775.mp4' | sha256sum -c
-          gh release upload temporary-review 'episode-five-full32-91cd3775.mp4' --clobber
+          echo '372d6c1745ef16c985d2e50fe2071fd393dc0e8712be2474e5d8b7bac69132cf  episode-five-full30-372d6c17.mp4' | sha256sum --check
+          gh release upload temporary-review 'episode-five-full30-372d6c17.mp4' --clobber
