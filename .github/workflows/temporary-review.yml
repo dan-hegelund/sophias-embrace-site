@@ -1,4 +1,4 @@
-name: Stage commentary opening for review
+name: Stage English episode for review
 on:
   push:
     branches: [preview-media-upload]
@@ -14,10 +14,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          file=phone-review/e5-commentary05-opening-b572be44.mp4
-          curl -fsSL --retry 5 --retry-all-errors --max-time 120 'https://herald-cuisine-use-arthur.trycloudflare.com/ShoO9uLF-iusoZbfej-y3A/review.mp4' -o "$file"
-          echo "b572be44018d94a3000018b118c5b066a2dbf69caabfbc9e961b985da45adb6f  $file" | sha256sum --check
+          file=phone-review/e5-english-cut44.mp4
+          curl -fsSL --retry 5 --retry-all-errors --max-time 120 'https://thumbzilla-hired-push-cleveland.trycloudflare.com/UL7nzi_gMuzX-e-e-Iq33A/review.mp4' -o "$file"
+          echo "2f186c47d14d1898df4fcfe2fa0296264d5688c728c1f20709aba1ffc48fd63f  $file" | sha256sum --check
           gh release upload temporary-review "$file" --clobber
           git add "$file"
-          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Episode Five commentary welcome"
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Episode Five English recording reference"
           git push origin HEAD:preview-media-upload
