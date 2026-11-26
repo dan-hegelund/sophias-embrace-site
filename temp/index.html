@@ -31,7 +31,15 @@
     <div role="status" id="message"></div>
   </main>
 <script>
-if (new URLSearchParams(location.search).get('review') === 'e5-dan-clone07') {
+if (new URLSearchParams(location.search).get('review') === 'zemlya-craft01') {
+ document.title = 'Zemlya’s Song · Scene and lighting tests';
+ const media = 'https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@463527a3d154d3c60deeb6c6805226305cac101b/phone-review/zemlya-craft01.mp4';
+ document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace</p><h1>Zemlya’s Song</h1><p>Scene and lighting tests · 2:06</p><video controls playsinline preload="metadata" aria-label="Zemlya scene and lighting tests"></video><p><button data-sec="0">Opening</button> <button data-sec="31.92">Hand callback</button> <button data-sec="45.25">The crowd</button> <button data-sec="88.083">Sophia’s escape</button></p><p><a id="open-test">Open video directly</a></p>';
+ const player = document.querySelector('main video');
+ player.src = media;
+ document.querySelector('#open-test').href = media;
+ document.querySelectorAll('[data-sec]').forEach(button => button.onclick = () => { player.currentTime = Number(button.dataset.sec); player.play().catch(() => {}); });
+} else if (new URLSearchParams(location.search).get('review') === 'e5-dan-clone07') {
  document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace · S01E05</p><h1>The Anomaly Speaks</h1><p>Dan’s cloned-voice commentary · 5:26</p><video controls playsinline preload="metadata" src="https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@preview-media-upload/phone-review/e5-dan-clone07.mp4"></video><p><a href="https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@preview-media-upload/phone-review/e5-dan-clone07.mp4">Open video directly</a></p>';
 } else if (new URLSearchParams(location.search).get('review') === 'e5-dan-memo06') {
  document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace · S01E05</p><h1>The Anomaly Speaks</h1><p>Dan’s recorded commentary · 5:26</p><video controls playsinline preload="metadata" src="https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@preview-media-upload/phone-review/e5-dan-memo06.mp4"></video><p><a href="https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@preview-media-upload/phone-review/e5-dan-memo06.mp4">Open video directly</a></p>';
