@@ -14,20 +14,17 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          file=phone-review/zemlya-full06.mp4
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://fragrance-contest-style-delivered.trycloudflare.com/xAEmF4w5iUvx29c4hZPQlwut/review.mp4" -o /tmp/part00 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 2000000-3999999 "https://fragrance-contest-style-delivered.trycloudflare.com/xAEmF4w5iUvx29c4hZPQlwut/review.mp4" -o /tmp/part01 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 4000000-5999999 "https://fragrance-contest-style-delivered.trycloudflare.com/xAEmF4w5iUvx29c4hZPQlwut/review.mp4" -o /tmp/part02 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://fragrance-contest-style-delivered.trycloudflare.com/xAEmF4w5iUvx29c4hZPQlwut/review.mp4" -o /tmp/part03 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 8000000-9999999 "https://fragrance-contest-style-delivered.trycloudflare.com/xAEmF4w5iUvx29c4hZPQlwut/review.mp4" -o /tmp/part04 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 10000000-11999999 "https://fragrance-contest-style-delivered.trycloudflare.com/xAEmF4w5iUvx29c4hZPQlwut/review.mp4" -o /tmp/part05 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://fragrance-contest-style-delivered.trycloudflare.com/xAEmF4w5iUvx29c4hZPQlwut/review.mp4" -o /tmp/part06 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 14000000-15999999 "https://fragrance-contest-style-delivered.trycloudflare.com/xAEmF4w5iUvx29c4hZPQlwut/review.mp4" -o /tmp/part07 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 16000000-17999999 "https://fragrance-contest-style-delivered.trycloudflare.com/xAEmF4w5iUvx29c4hZPQlwut/review.mp4" -o /tmp/part08 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 18000000-19701964 "https://fragrance-contest-style-delivered.trycloudflare.com/xAEmF4w5iUvx29c4hZPQlwut/review.mp4" -o /tmp/part09 &
+          file=phone-review/zemlya-full07.mp4
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://marine-cars-assure-quarterly.trycloudflare.com/MXf34A8Z0hlayVSOt1MM7mfn/review.mp4" -o /tmp/part00 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 3000000-4999999 "https://marine-cars-assure-quarterly.trycloudflare.com/MXf34A8Z0hlayVSOt1MM7mfn/review.mp4" -o /tmp/part01 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://marine-cars-assure-quarterly.trycloudflare.com/MXf34A8Z0hlayVSOt1MM7mfn/review.mp4" -o /tmp/part02 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 9000000-10999999 "https://marine-cars-assure-quarterly.trycloudflare.com/MXf34A8Z0hlayVSOt1MM7mfn/review.mp4" -o /tmp/part03 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://marine-cars-assure-quarterly.trycloudflare.com/MXf34A8Z0hlayVSOt1MM7mfn/review.mp4" -o /tmp/part04 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 15000000-16999999 "https://marine-cars-assure-quarterly.trycloudflare.com/MXf34A8Z0hlayVSOt1MM7mfn/review.mp4" -o /tmp/part05 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 18000000-19862789 "https://marine-cars-assure-quarterly.trycloudflare.com/MXf34A8Z0hlayVSOt1MM7mfn/review.mp4" -o /tmp/part06 &
           wait
           cat /tmp/part[0-9][0-9] > "$file"
-          echo "7ecbcaa86d3724c3613c4e2663ea4f134f93b4abaffb793bdf74d65f313182b3  $file" | sha256sum --check
+          echo "0683ae8b21720c6a72278de15fdc7bf97ee09b298702cf7cbbae83d920a666c5  $file" | sha256sum --check
           gh release upload temporary-review "$file" --clobber
           git add "$file"
           git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Zemlya picture edit for review"
