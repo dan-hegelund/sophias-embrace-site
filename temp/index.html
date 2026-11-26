@@ -34,11 +34,11 @@
 if (new URLSearchParams(location.search).get('review') === 'dan-e5') {
  const media = 'https://github.com/dan-hegelund/sophias-embrace-site/releases/download/temporary-review/e5-commentary-dan-53b9a715.mp4';
  document.title = 'The Anomaly Speaks · Creator Commentary';
- document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace · S01E05</p><h1>The Anomaly Speaks</h1><p>Creator commentary with Dan Hegelund · 5:26</p><video controls playsinline preload="metadata" aria-label="Episode Five creator commentary"></video><p><button id="first" type="button" style="font:inherit;padding:.5em .8em">Hear Dan at 0:25</button></p><p><a id="save">Download the commentary</a></p>';
+ document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace · S01E05</p><h1>The Anomaly Speaks</h1><p>Creator commentary with Dan Hegelund · 5:26</p><video controls playsinline preload="metadata" aria-label="Episode Five creator commentary"></video><p><button id="first" type="button" style="font:inherit;padding:.5em .8em">Hear Dan at 0:25</button></p><p><a id="save">Download the 720p commentary</a></p>';
  const v = document.querySelector('video');
- v.src = media;
+ v.src = 'https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@6da8ff330998dfd5c706dff7e3b0f0e2171dc16e/phone-review/dan04-mobile.mp4';
  document.querySelector('#save').href = media;
- document.querySelector('#first').onclick = () => {v.currentTime=24; v.play().catch(()=>{});};
+ document.querySelector('#first').onclick = () => {v.play().then(()=>{v.currentTime=24;}).catch(()=>{});};
 } else if (new URLSearchParams(location.search).get('review') === 'kneel33') {
  const main = document.querySelector('main');
  main.innerHTML = "<p class=\"label\">Episode Five \u00b7 Performance review</p>\n<h1>Alexey\u2019s kneel</h1>\n<nav aria-label=\"Kneel speeds\" style=\"display:flex;gap:.65em;flex-wrap:wrap;margin:1em 0\"></nav>\n<video controls playsinline preload=\"metadata\" aria-label=\"Kneel speed comparison\"></video>\n<button id=\"trial-play\" style=\"margin:.8rem 0 .25rem;padding:.6rem 1rem;font:inherit\">Play excerpt</button>\n<p>Each excerpt runs 32 seconds. The kneel lands on \u201cname\u201d at 0:16.</p>\n<a id=\"trial-direct\">Open this video directly</a>";
