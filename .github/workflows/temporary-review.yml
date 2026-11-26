@@ -1,4 +1,4 @@
-name: Illustrate Zemlya storyboard
+name: Share Zemlya scene tests
 on:
   push:
     branches: [preview-media-upload]
@@ -9,28 +9,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: main
-      - name: Install artwork on the private storyboard
+      - name: Verify and host the scene tests
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          file=storyboard/zemlya/intervention08.bin
-          curl -fsSL --max-time 180 --retry 3 --retry-all-errors -r 0-1999999 "https://sample-neighbor-labeled-mario.trycloudflare.com/qKuabeTOpEgdpWKfuWcNoYm_/board.bin" -o /tmp/z00 &
-          curl -fsSL --max-time 180 --retry 3 --retry-all-errors -r 2000000-3999999 "https://sample-neighbor-labeled-mario.trycloudflare.com/qKuabeTOpEgdpWKfuWcNoYm_/board.bin" -o /tmp/z01 &
-          curl -fsSL --max-time 180 --retry 3 --retry-all-errors -r 4000000-5999999 "https://sample-neighbor-labeled-mario.trycloudflare.com/qKuabeTOpEgdpWKfuWcNoYm_/board.bin" -o /tmp/z02 &
-          curl -fsSL --max-time 180 --retry 3 --retry-all-errors -r 6000000-7999999 "https://sample-neighbor-labeled-mario.trycloudflare.com/qKuabeTOpEgdpWKfuWcNoYm_/board.bin" -o /tmp/z03 &
-          curl -fsSL --max-time 180 --retry 3 --retry-all-errors -r 8000000-9999999 "https://sample-neighbor-labeled-mario.trycloudflare.com/qKuabeTOpEgdpWKfuWcNoYm_/board.bin" -o /tmp/z04 &
-          curl -fsSL --max-time 180 --retry 3 --retry-all-errors -r 10000000-11999999 "https://sample-neighbor-labeled-mario.trycloudflare.com/qKuabeTOpEgdpWKfuWcNoYm_/board.bin" -o /tmp/z05 &
-          curl -fsSL --max-time 180 --retry 3 --retry-all-errors -r 12000000-13999999 "https://sample-neighbor-labeled-mario.trycloudflare.com/qKuabeTOpEgdpWKfuWcNoYm_/board.bin" -o /tmp/z06 &
-          curl -fsSL --max-time 180 --retry 3 --retry-all-errors -r 14000000-15999999 "https://sample-neighbor-labeled-mario.trycloudflare.com/qKuabeTOpEgdpWKfuWcNoYm_/board.bin" -o /tmp/z07 &
-          curl -fsSL --max-time 180 --retry 3 --retry-all-errors -r 16000000-17208535 "https://sample-neighbor-labeled-mario.trycloudflare.com/qKuabeTOpEgdpWKfuWcNoYm_/board.bin" -o /tmp/z08 &
+          file=phone-review/zemlya-craft01.mp4
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://distribution-keyboards-house-vhs.trycloudflare.com/GUnpdYe53hoalIqFTlezrerA/review.mp4" -o /tmp/part00 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 2000000-3999999 "https://distribution-keyboards-house-vhs.trycloudflare.com/GUnpdYe53hoalIqFTlezrerA/review.mp4" -o /tmp/part01 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 4000000-5999999 "https://distribution-keyboards-house-vhs.trycloudflare.com/GUnpdYe53hoalIqFTlezrerA/review.mp4" -o /tmp/part02 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://distribution-keyboards-house-vhs.trycloudflare.com/GUnpdYe53hoalIqFTlezrerA/review.mp4" -o /tmp/part03 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 8000000-9999999 "https://distribution-keyboards-house-vhs.trycloudflare.com/GUnpdYe53hoalIqFTlezrerA/review.mp4" -o /tmp/part04 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 10000000-11999999 "https://distribution-keyboards-house-vhs.trycloudflare.com/GUnpdYe53hoalIqFTlezrerA/review.mp4" -o /tmp/part05 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://distribution-keyboards-house-vhs.trycloudflare.com/GUnpdYe53hoalIqFTlezrerA/review.mp4" -o /tmp/part06 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 14000000-15999999 "https://distribution-keyboards-house-vhs.trycloudflare.com/GUnpdYe53hoalIqFTlezrerA/review.mp4" -o /tmp/part07 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 16000000-17999999 "https://distribution-keyboards-house-vhs.trycloudflare.com/GUnpdYe53hoalIqFTlezrerA/review.mp4" -o /tmp/part08 &
+          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 18000000-19240915 "https://distribution-keyboards-house-vhs.trycloudflare.com/GUnpdYe53hoalIqFTlezrerA/review.mp4" -o /tmp/part09 &
           wait
-          cat /tmp/z[0-9][0-9] > "$file"
-          echo "4ae2e5bb3993bfd2b69b3251a3d2ba791a1ba2e3ad2a9a1648d28f1ee07c25e9  $file" | sha256sum --check
-          echo KGFzeW5jKCk9Pnt0cnl7Y29uc3Qgdj1uZXcgVVJMU2VhcmNoUGFyYW1zKGxvY2F0aW9uLnNlYXJjaCkuZ2V0KCJ2Iik7aWYodiYmdiE9PSJpbnRlcnZlbnRpb24wOCIpe2NvbnN0IG9sZD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCJzY3JpcHQiKTtvbGQuc3JjPSJsb2FkMDcuanMiO2RvY3VtZW50LmJvZHkuYXBwZW5kKG9sZCk7cmV0dXJufWxldCBrPWxvY2F0aW9uLmhhc2guc2xpY2UoMSk7aWYoIWspdGhyb3cgRXJyb3IoIk9wZW4gdGhlIHByaXZhdGUgc3Rvcnlib2FyZCBsaW5rIGZyb20geW91ciBjaGF0LiIpO2NvbnN0IGJ5dGVzPXM9PlVpbnQ4QXJyYXkuZnJvbShhdG9iKHMpLGM9PmMuY2hhckNvZGVBdCgwKSk7Y29uc3Qga2V5PWF3YWl0IGNyeXB0by5zdWJ0bGUuaW1wb3J0S2V5KCJyYXciLGJ5dGVzKGsucmVwbGFjZSgvLS9nLCIrIikucmVwbGFjZSgvXy9nLCIvIikpLCJBRVMtR0NNIixmYWxzZSxbImRlY3J5cHQiXSk7Y29uc3Qgcj1hd2FpdCBmZXRjaCgiaW50ZXJ2ZW50aW9uMDguYmluIik7aWYoIXIub2spdGhyb3cgRXJyb3IoIkJvYXJkIHVuYXZhaWxhYmxlIik7Y29uc3QgYj1uZXcgVWludDhBcnJheShhd2FpdCByLmFycmF5QnVmZmVyKCkpLGNsZWFyPWF3YWl0IGNyeXB0by5zdWJ0bGUuZGVjcnlwdCh7bmFtZToiQUVTLUdDTSIsaXY6Yi5zdWJhcnJheSgwLDEyKX0sa2V5LGIuc3ViYXJyYXkoMTIpKTtjb25zdCB7cGxhbixhc3NldHN9PUpTT04ucGFyc2UobmV3IFRleHREZWNvZGVyKCkuZGVjb2RlKGNsZWFyKSk7d2luZG93LmJvYXJkUGxhbj1wbGFuO3dpbmRvdy5ib2FyZE1lZGlhPXt9O2Zvcihjb25zdCBbaWQsdl0gb2YgT2JqZWN0LmVudHJpZXMoYXNzZXRzKSl3aW5kb3cuYm9hcmRNZWRpYVtpZF09VVJMLmNyZWF0ZU9iamVjdFVSTChuZXcgQmxvYihbYnl0ZXModildLHt0eXBlOmlkPT09cGxhbi5hdWRpb1NyYz8iYXVkaW8vbXBlZyI6ImltYWdlL2pwZWcifSkpO2NvbnN0IHNjcmlwdD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCJzY3JpcHQiKTtzY3JpcHQuc3JjPSJlZGl0b3IuanMiO2RvY3VtZW50LmJvZHkuYXBwZW5kKHNjcmlwdCl9Y2F0Y2goZSl7ZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiI3RpdGxlIikudGV4dENvbnRlbnQ9IlByaXZhdGUgc3Rvcnlib2FyZCI7ZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiLm5vdGljZSIpLnRleHRDb250ZW50PSJPcGVuIHRoZSBwcml2YXRlIHN0b3J5Ym9hcmQgbGluayBmcm9tIHlvdXIgY2hhdC4iO2RvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIiNhZGRUb3AiKS5oaWRkZW49dHJ1ZX19KSgpOw== | base64 -d > storyboard/zemlya/load08.js
-          grep -q 'src="load07.js"' storyboard/zemlya/index.html
-          sed -i 's/src="load07.js"/src="load08.js"/' storyboard/zemlya/index.html
-          git add "$file" storyboard/zemlya/load08.js storyboard/zemlya/index.html
-          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Show why the machinist is detained in cards 29 through 33"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          cat /tmp/part[0-9][0-9] > "$file"
+          echo "941cae20aaf34b6c0e21f5cc545fbcbfeced9e9571f0862d90e0db4f71a82aff  $file" | sha256sum --check
+          gh release upload temporary-review "$file" --clobber
+          git add "$file"
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Zemlya scene tests for review"
+          git pull --rebase origin preview-media-upload
+          git push origin HEAD:preview-media-upload
