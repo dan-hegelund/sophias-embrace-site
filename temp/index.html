@@ -31,7 +31,10 @@
     <div role="status" id="message"></div>
   </main>
 <script>
-if (new URLSearchParams(location.search).get('review') === 'dan-e5') {
+if (new URLSearchParams(location.search).get('review') === 'dan-e5-welcome') {
+ document.title = 'Episode Five commentary · Opening review';
+ document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace · S01E05</p><h1>Creator Commentary</h1><p>The new welcome and the first scene · 40 seconds</p><video controls playsinline preload="metadata" src="https://cdn.jsdelivr.net/gh/dan-hegelund/sophias-embrace-site@preview-media-upload/phone-review/e5-commentary05-opening-b572be44.mp4"></video><p><a href="https://github.com/dan-hegelund/sophias-embrace-site/releases/download/temporary-review/e5-commentary05-opening-b572be44.mp4">Download opening</a></p>';
+} else if (new URLSearchParams(location.search).get('review') === 'dan-e5') {
  const media = 'https://github.com/dan-hegelund/sophias-embrace-site/releases/download/temporary-review/e5-commentary-dan-53b9a715.mp4';
  document.title = 'The Anomaly Speaks · Creator Commentary';
  document.querySelector('main').innerHTML = '<p class="label">Sophia’s Embrace · S01E05</p><h1>The Anomaly Speaks</h1><p>Creator commentary with Dan Hegelund · 5:26</p><video controls playsinline preload="metadata" aria-label="Episode Five creator commentary"></video><p><button id="first" type="button" style="font:inherit;padding:.5em .8em">Hear Dan at 0:25</button></p><p><a id="save">Download the 720p commentary</a></p>';
