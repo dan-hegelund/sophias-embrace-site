@@ -16,45 +16,55 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -eu
-          curl -fsSL --retry 3 -r 0-1499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part000 &
-          curl -fsSL --retry 3 -r 1500000-2999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part001 &
-          curl -fsSL --retry 3 -r 3000000-4499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part002 &
-          curl -fsSL --retry 3 -r 4500000-5999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part003 &
-          curl -fsSL --retry 3 -r 6000000-7499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part004 &
-          curl -fsSL --retry 3 -r 7500000-8999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part005 &
-          curl -fsSL --retry 3 -r 9000000-10499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part006 &
-          curl -fsSL --retry 3 -r 10500000-11999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part007 &
-          curl -fsSL --retry 3 -r 12000000-13499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part008 &
-          curl -fsSL --retry 3 -r 13500000-14999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part009 &
-          curl -fsSL --retry 3 -r 15000000-16499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part010 &
-          curl -fsSL --retry 3 -r 16500000-17999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part011 &
-          curl -fsSL --retry 3 -r 18000000-19499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part012 &
-          curl -fsSL --retry 3 -r 19500000-20999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part013 &
-          curl -fsSL --retry 3 -r 21000000-22499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part014 &
-          curl -fsSL --retry 3 -r 22500000-23999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part015 &
-          curl -fsSL --retry 3 -r 24000000-25499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part016 &
-          curl -fsSL --retry 3 -r 25500000-26999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part017 &
-          curl -fsSL --retry 3 -r 27000000-28499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part018 &
-          curl -fsSL --retry 3 -r 28500000-29999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part019 &
-          curl -fsSL --retry 3 -r 30000000-31499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part020 &
-          curl -fsSL --retry 3 -r 31500000-32999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part021 &
-          curl -fsSL --retry 3 -r 33000000-34499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part022 &
-          curl -fsSL --retry 3 -r 34500000-35999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part023 &
-          curl -fsSL --retry 3 -r 36000000-37499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part024 &
-          curl -fsSL --retry 3 -r 37500000-38999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part025 &
-          curl -fsSL --retry 3 -r 39000000-40499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part026 &
-          curl -fsSL --retry 3 -r 40500000-41999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part027 &
-          curl -fsSL --retry 3 -r 42000000-43499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part028 &
-          curl -fsSL --retry 3 -r 43500000-43627794 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part029 &
+          curl -fsSL --retry 3 -r 0-1499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part000 &
+          curl -fsSL --retry 3 -r 1500000-2999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part001 &
+          curl -fsSL --retry 3 -r 3000000-4499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part002 &
+          curl -fsSL --retry 3 -r 4500000-5999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part003 &
+          curl -fsSL --retry 3 -r 6000000-7499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part004 &
+          curl -fsSL --retry 3 -r 7500000-8999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part005 &
+          curl -fsSL --retry 3 -r 9000000-10499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part006 &
+          curl -fsSL --retry 3 -r 10500000-11999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part007 &
+          curl -fsSL --retry 3 -r 12000000-13499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part008 &
+          curl -fsSL --retry 3 -r 13500000-14999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part009 &
+          curl -fsSL --retry 3 -r 15000000-16499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part010 &
+          curl -fsSL --retry 3 -r 16500000-17999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part011 &
+          curl -fsSL --retry 3 -r 18000000-19499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part012 &
+          curl -fsSL --retry 3 -r 19500000-20999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part013 &
+          curl -fsSL --retry 3 -r 21000000-22499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part014 &
+          curl -fsSL --retry 3 -r 22500000-23999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part015 &
+          curl -fsSL --retry 3 -r 24000000-25499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part016 &
+          curl -fsSL --retry 3 -r 25500000-26999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part017 &
+          curl -fsSL --retry 3 -r 27000000-28499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part018 &
+          curl -fsSL --retry 3 -r 28500000-29999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part019 &
+          curl -fsSL --retry 3 -r 30000000-31499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part020 &
+          curl -fsSL --retry 3 -r 31500000-32999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part021 &
+          curl -fsSL --retry 3 -r 33000000-34499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part022 &
+          curl -fsSL --retry 3 -r 34500000-35999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part023 &
+          curl -fsSL --retry 3 -r 36000000-37499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part024 &
+          curl -fsSL --retry 3 -r 37500000-38999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part025 &
+          curl -fsSL --retry 3 -r 39000000-40499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part026 &
+          curl -fsSL --retry 3 -r 40500000-41999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part027 &
+          curl -fsSL --retry 3 -r 42000000-43499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part028 &
+          curl -fsSL --retry 3 -r 43500000-44999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part029 &
+          curl -fsSL --retry 3 -r 45000000-46499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part030 &
+          curl -fsSL --retry 3 -r 46500000-47999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part031 &
+          curl -fsSL --retry 3 -r 48000000-49499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part032 &
+          curl -fsSL --retry 3 -r 49500000-50999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part033 &
+          curl -fsSL --retry 3 -r 51000000-52499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part034 &
+          curl -fsSL --retry 3 -r 52500000-53999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part035 &
+          curl -fsSL --retry 3 -r 54000000-55499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part036 &
+          curl -fsSL --retry 3 -r 55500000-56999999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part037 &
+          curl -fsSL --retry 3 -r 57000000-58499999 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part038 &
+          curl -fsSL --retry 3 -r 58500000-59249554 "https://plastic-africa-male-dirt.trycloudflare.com/ckVr7BqWLrp5sj6oatR6rfoGKWvREdW3/review.zip" -o /tmp/part039 &
           wait
-          cat /tmp/part[0-9][0-9][0-9] >/tmp/tutorial-four-voronov-d0b476b3.mp4
-          echo "d0b476b36aeea4d2113fb0da187833a5d5bc479c43bb2133f3b5aba8d5c37024  /tmp/tutorial-four-voronov-d0b476b3.mp4" | sha256sum -c -
-          gh release upload temporary-review /tmp/tutorial-four-voronov-d0b476b3.mp4 --clobber
+          cat /tmp/part[0-9][0-9][0-9] >/tmp/tutorial-four-voronov-f4658226.mp4
+          echo "f4658226d65ec037e222a999bb5360215a83c2fbd90142481eea14cd11b7694a  /tmp/tutorial-four-voronov-f4658226.mp4" | sha256sum -c -
+          gh release upload temporary-review /tmp/tutorial-four-voronov-f4658226.mp4 --clobber
           python3 - <<'PYEDIT'
           from pathlib import Path
           p=Path("temp/index.html")
           s=p.read_text()
-          script="""<script>if(new URLSearchParams(location.search).get('v')==='t04-voronov-01'){document.title='How to Keep a Character Recognizable';document.querySelector('main').innerHTML='<h1>How to Keep a Character Recognizable</h1><video controls playsinline preload="metadata" src="https://github.com/dan-hegelund/sophias-embrace-site/releases/download/temporary-review/tutorial-four-voronov-d0b476b3.mp4"></video>';}</script>"""
+          script="""<script>if(new URLSearchParams(location.search).get('v')==='t04-voronov-02'){document.title='How to Keep a Character Recognizable';document.querySelector('main').innerHTML='<h1>How to Keep a Character Recognizable</h1><video controls playsinline preload="metadata" src="https://github.com/dan-hegelund/sophias-embrace-site/releases/download/temporary-review/tutorial-four-voronov-f4658226.mp4"></video>';}</script>"""
           p.write_text(s.replace('</body>',script+'</body>'))
           PYEDIT
           git add temp/index.html
