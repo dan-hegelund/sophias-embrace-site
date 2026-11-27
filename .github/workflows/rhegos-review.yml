@@ -1,0 +1,39 @@
+name: Install private Rhegos storyboard
+on:
+  push:
+    branches: [film-review-rhegos-17a]
+permissions:
+  contents: write
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Verify and install the storyboard files
+        run: |
+          set -euo pipefail
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 0-1499999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk00 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 1500000-2999999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk01 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 3000000-4499999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk02 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 4500000-5999999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk03 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 6000000-7499999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk04 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 7500000-8999999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk05 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 9000000-10499999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk06 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 10500000-11999999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk07 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 12000000-13499999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk08 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 13500000-14999999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk09 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 15000000-16499999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk10 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 16500000-17999999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk11 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 18000000-19499999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk12 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 19500000-20999999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk13 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 21000000-21806897 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk14 &
+          wait
+          cat /tmp/rwk[0-9][0-9] > /tmp/review.zip
+          echo "1999fbae96050eed2fed4a4ed5080755185881c5e433e540a35135fc222cd528  /tmp/review.zip" | sha256sum -c
+          unzip -o /tmp/review.zip
+          git add storyboard/rhegos
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Add private Rhegos storyboard review"
+          git pull --rebase origin main
+          git push origin HEAD:main
