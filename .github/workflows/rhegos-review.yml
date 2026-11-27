@@ -1,40 +1,63 @@
-name: Install private Rhegos storyboard
+name: Install tutorial private review
 on:
   push:
     branches: [film-review-rhegos-17a]
 permissions:
   contents: write
 jobs:
-  stage:
+  review:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - name: Verify and install the storyboard files
+      - name: Stage and verify review
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          set -euo pipefail
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 0-1499999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk00 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 1500000-2999999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk01 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 3000000-4499999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk02 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 4500000-5999999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk03 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 6000000-7499999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk04 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 7500000-8999999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk05 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 9000000-10499999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk06 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 10500000-11999999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk07 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 12000000-13499999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk08 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 13500000-14999999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk09 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 15000000-16499999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk10 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 16500000-17999999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk11 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 18000000-19499999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk12 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 19500000-20999999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk13 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 21000000-22499999 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk14 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 22500000-22542205 "https://execute-mainly-stockings-assists.trycloudflare.com/mIftDO1iBf3YXHGCqHQ50PnzSQieVFTG/review.zip" -o /tmp/rwk15 &
+          set -eu
+          curl -fsSL --retry 3 -r 0-1499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part000 &
+          curl -fsSL --retry 3 -r 1500000-2999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part001 &
+          curl -fsSL --retry 3 -r 3000000-4499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part002 &
+          curl -fsSL --retry 3 -r 4500000-5999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part003 &
+          curl -fsSL --retry 3 -r 6000000-7499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part004 &
+          curl -fsSL --retry 3 -r 7500000-8999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part005 &
+          curl -fsSL --retry 3 -r 9000000-10499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part006 &
+          curl -fsSL --retry 3 -r 10500000-11999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part007 &
+          curl -fsSL --retry 3 -r 12000000-13499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part008 &
+          curl -fsSL --retry 3 -r 13500000-14999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part009 &
+          curl -fsSL --retry 3 -r 15000000-16499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part010 &
+          curl -fsSL --retry 3 -r 16500000-17999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part011 &
+          curl -fsSL --retry 3 -r 18000000-19499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part012 &
+          curl -fsSL --retry 3 -r 19500000-20999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part013 &
+          curl -fsSL --retry 3 -r 21000000-22499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part014 &
+          curl -fsSL --retry 3 -r 22500000-23999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part015 &
+          curl -fsSL --retry 3 -r 24000000-25499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part016 &
+          curl -fsSL --retry 3 -r 25500000-26999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part017 &
+          curl -fsSL --retry 3 -r 27000000-28499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part018 &
+          curl -fsSL --retry 3 -r 28500000-29999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part019 &
+          curl -fsSL --retry 3 -r 30000000-31499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part020 &
+          curl -fsSL --retry 3 -r 31500000-32999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part021 &
+          curl -fsSL --retry 3 -r 33000000-34499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part022 &
+          curl -fsSL --retry 3 -r 34500000-35999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part023 &
+          curl -fsSL --retry 3 -r 36000000-37499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part024 &
+          curl -fsSL --retry 3 -r 37500000-38999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part025 &
+          curl -fsSL --retry 3 -r 39000000-40499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part026 &
+          curl -fsSL --retry 3 -r 40500000-41999999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part027 &
+          curl -fsSL --retry 3 -r 42000000-43499999 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part028 &
+          curl -fsSL --retry 3 -r 43500000-43627794 "https://wow-approximate-wrestling-above.trycloudflare.com/-iLb_LM3EqnQH7HU4KbcJZVjCLKLZir_/review.zip" -o /tmp/part029 &
           wait
-          cat /tmp/rwk[0-9][0-9] > /tmp/review.zip
-          echo "48e1267f9e65932b415260e1e6426c8ba5b9bf13585d71e98f77a1ff31563229  /tmp/review.zip" | sha256sum -c
-          unzip -o /tmp/review.zip
-          git add storyboard/rhegos
-          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Add private Rhegos storyboard review"
+          cat /tmp/part[0-9][0-9][0-9] >/tmp/tutorial-four-voronov-d0b476b3.mp4
+          echo "d0b476b36aeea4d2113fb0da187833a5d5bc479c43bb2133f3b5aba8d5c37024  /tmp/tutorial-four-voronov-d0b476b3.mp4" | sha256sum -c -
+          gh release upload temporary-review /tmp/tutorial-four-voronov-d0b476b3.mp4 --clobber
+          python3 - <<'PYEDIT'
+          from pathlib import Path
+          p=Path("temp/index.html")
+          s=p.read_text()
+          script="""<script>if(new URLSearchParams(location.search).get('v')==='t04-voronov-01'){document.title='How to Keep a Character Recognizable';document.querySelector('main').innerHTML='<h1>How to Keep a Character Recognizable</h1><video controls playsinline preload="metadata" src="https://github.com/dan-hegelund/sophias-embrace-site/releases/download/temporary-review/tutorial-four-voronov-d0b476b3.mp4"></video>';}</script>"""
+          p.write_text(s.replace('</body>',script+'</body>'))
+          PYEDIT
+          git add temp/index.html
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Serve Tutorial Four private review"
           git pull --rebase origin main
           git push origin HEAD:main
