@@ -1,4 +1,4 @@
-name: Share Zemlya picture edit
+name: Verify and host full-resolution film preview
 on:
   push:
     branches: [preview-media-upload]
@@ -9,27 +9,81 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify and host the picture edit
+      - name: Verify the review media
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          file=phone-review/zemlya-decree10f.mp4
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 0-1999999 "https://earthquake-occasions-beneath-webster.trycloudflare.com/WPqcsKbgEovSph9xVM5oXMBp/review.mp4?part=0" -o /tmp/part00 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 2000000-3999999 "https://earthquake-occasions-beneath-webster.trycloudflare.com/WPqcsKbgEovSph9xVM5oXMBp/review.mp4?part=1" -o /tmp/part01 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 4000000-5999999 "https://earthquake-occasions-beneath-webster.trycloudflare.com/WPqcsKbgEovSph9xVM5oXMBp/review.mp4?part=2" -o /tmp/part02 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 6000000-7999999 "https://earthquake-occasions-beneath-webster.trycloudflare.com/WPqcsKbgEovSph9xVM5oXMBp/review.mp4?part=3" -o /tmp/part03 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 8000000-9999999 "https://earthquake-occasions-beneath-webster.trycloudflare.com/WPqcsKbgEovSph9xVM5oXMBp/review.mp4?part=4" -o /tmp/part04 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 10000000-11999999 "https://earthquake-occasions-beneath-webster.trycloudflare.com/WPqcsKbgEovSph9xVM5oXMBp/review.mp4?part=5" -o /tmp/part05 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 12000000-13999999 "https://earthquake-occasions-beneath-webster.trycloudflare.com/WPqcsKbgEovSph9xVM5oXMBp/review.mp4?part=6" -o /tmp/part06 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 14000000-15999999 "https://earthquake-occasions-beneath-webster.trycloudflare.com/WPqcsKbgEovSph9xVM5oXMBp/review.mp4?part=7" -o /tmp/part07 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 16000000-17999999 "https://earthquake-occasions-beneath-webster.trycloudflare.com/WPqcsKbgEovSph9xVM5oXMBp/review.mp4?part=8" -o /tmp/part08 &
-          curl -fsSL --retry 3 --retry-all-errors --max-time 240 -r 18000000-19595530 "https://earthquake-occasions-beneath-webster.trycloudflare.com/WPqcsKbgEovSph9xVM5oXMBp/review.mp4?part=9" -o /tmp/part09 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 0-3999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=0" -o /tmp/zpart000 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 4000000-7999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=1" -o /tmp/zpart001 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 8000000-11999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=2" -o /tmp/zpart002 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 12000000-15999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=3" -o /tmp/zpart003 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 16000000-19999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=4" -o /tmp/zpart004 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 20000000-23999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=5" -o /tmp/zpart005 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 24000000-27999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=6" -o /tmp/zpart006 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 28000000-31999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=7" -o /tmp/zpart007 &
           wait
-          cat /tmp/part[0-9][0-9] > "$file"
-          echo "c6f5054b374c34ef56039e665bfe8b0ea86cc764feb19c71994e24cf7debce93  $file" | sha256sum --check
-          gh release upload temporary-review "$file" --clobber
-          git add "$file"
-          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Stage Zemlya picture edit for review"
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 32000000-35999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=8" -o /tmp/zpart008 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 36000000-39999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=9" -o /tmp/zpart009 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 40000000-43999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=10" -o /tmp/zpart010 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 44000000-47999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=11" -o /tmp/zpart011 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 48000000-51999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=12" -o /tmp/zpart012 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 52000000-55999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=13" -o /tmp/zpart013 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 56000000-59999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=14" -o /tmp/zpart014 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 60000000-63999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=15" -o /tmp/zpart015 &
+          wait
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 64000000-67999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=16" -o /tmp/zpart016 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 68000000-71999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=17" -o /tmp/zpart017 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 72000000-75999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=18" -o /tmp/zpart018 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 76000000-79999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=19" -o /tmp/zpart019 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 80000000-83999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=20" -o /tmp/zpart020 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 84000000-87999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=21" -o /tmp/zpart021 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 88000000-91999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=22" -o /tmp/zpart022 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 92000000-95999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=23" -o /tmp/zpart023 &
+          wait
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 96000000-99999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=24" -o /tmp/zpart024 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 100000000-103999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=25" -o /tmp/zpart025 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 104000000-107999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=26" -o /tmp/zpart026 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 108000000-111999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=27" -o /tmp/zpart027 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 112000000-115999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=28" -o /tmp/zpart028 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 116000000-119999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=29" -o /tmp/zpart029 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 120000000-123999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=30" -o /tmp/zpart030 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 124000000-127999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=31" -o /tmp/zpart031 &
+          wait
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 128000000-131999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=32" -o /tmp/zpart032 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 132000000-135999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=33" -o /tmp/zpart033 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 136000000-139999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=34" -o /tmp/zpart034 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 140000000-143999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=35" -o /tmp/zpart035 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 144000000-147999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=36" -o /tmp/zpart036 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 148000000-151999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=37" -o /tmp/zpart037 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 152000000-155999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=38" -o /tmp/zpart038 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 156000000-159999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=39" -o /tmp/zpart039 &
+          wait
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 160000000-163999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=40" -o /tmp/zpart040 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 164000000-167999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=41" -o /tmp/zpart041 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 168000000-171999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=42" -o /tmp/zpart042 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 172000000-175999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=43" -o /tmp/zpart043 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 176000000-179999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=44" -o /tmp/zpart044 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 180000000-183999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=45" -o /tmp/zpart045 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 184000000-187999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=46" -o /tmp/zpart046 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 188000000-191999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=47" -o /tmp/zpart047 &
+          wait
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 192000000-195999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=48" -o /tmp/zpart048 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 196000000-199999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=49" -o /tmp/zpart049 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 200000000-203999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=50" -o /tmp/zpart050 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 204000000-207999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=51" -o /tmp/zpart051 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 208000000-211999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=52" -o /tmp/zpart052 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 212000000-215999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=53" -o /tmp/zpart053 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 216000000-219999999 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=54" -o /tmp/zpart054 &
+          curl -fsSL --retry 4 --retry-all-errors --max-time 300 -r 220000000-223301631 "https://cdt-ask-january-alexander.trycloudflare.com/4JBPRbWYXtj-5hWfmbH1BOA-/stream.tar?piece=55" -o /tmp/zpart055 &
+          wait
+          wait
+          cat /tmp/zpart* >/tmp/zemlya11-stream.tar
+          echo "adb06767c7b0d14b371178c8b21ba8df32969fd98c61b17ca2c2832bdfd755a6  /tmp/zemlya11-stream.tar" | sha256sum --check
+          mkdir -p phone-review/zemlya11
+          tar -xf /tmp/zemlya11-stream.tar -C phone-review/zemlya11
+          gh release upload temporary-review /tmp/zemlya11-stream.tar --clobber
+          git add phone-review/zemlya11
+          git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Host Zemlya 11 in seekable 1080p segments"
           git pull --rebase origin preview-media-upload
           git push origin HEAD:preview-media-upload
