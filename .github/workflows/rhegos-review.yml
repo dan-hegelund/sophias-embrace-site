@@ -28,10 +28,10 @@ jobs:
           curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 16500000-17999999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk11 &
           curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 18000000-19499999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk12 &
           curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 19500000-20999999 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk13 &
-          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 21000000-21774040 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk14 &
+          curl -fsSL --max-time 120 --retry 2 --retry-all-errors -r 21000000-21710512 "https://civilization-sims-bedroom-overall.trycloudflare.com/uC94pURX--cqZwFdQFFTmZIgJnZ5VQwl/review.zip" -o /tmp/rwk14 &
           wait
           cat /tmp/rwk[0-9][0-9] > /tmp/review.zip
-          echo "b324e82cda3e9f8a9c6106216087564d1fee2e40fe132651a5de6e28d88b98bd  /tmp/review.zip" | sha256sum -c
+          echo "3d46d22347ef142e80f802b053dae71ae56bb5300297f9db6904376d5005d0e1  /tmp/review.zip" | sha256sum -c
           unzip -o /tmp/review.zip
           git add storyboard/rhegos
           git -c user.name=github-actions -c user.email=github-actions@users.noreply.github.com commit -m "Add private Rhegos storyboard review"
